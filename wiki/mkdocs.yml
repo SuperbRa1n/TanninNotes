@@ -41,10 +41,10 @@ nav:
     - 代码规范: 编程基础/代码规范.md
   - 嵌入式:
     - 前言: 嵌入式开发/前言.md
-    - Arduino：梦开始的地方: 嵌入式开发/Arduino.md
-    - ESP32-Arduino框架: 嵌入式开发/ESP32Arduino框架.md
-    - STM32：标准库: 嵌入式开发/STM32标准库.md
-    - STM32-hal库: 嵌入式开发/STM32hal库.md
+    - Arduino:梦开始的地方: 嵌入式开发/Arduino.md
+    - Homepea:ESP32-Arduino框架: 嵌入式开发/ESP32Arduino框架.md
+    - 江协科技:STM32-标准库: 嵌入式开发/STM32标准库.md
+    - keysking:STM32-hal库: 嵌入式开发/STM32hal库.md
     - FreeRTOS: 嵌入式开发/FreeRTOS.md
     - 进阶板块:
       - ZynqSoC:
