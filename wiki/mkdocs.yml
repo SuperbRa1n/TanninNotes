@@ -1,12 +1,12 @@
-site_name: X-DIY
-repo_url: https://github.com/zjuxlab/X-DIY
-repo_name: X-DIY
-site_description: 浙江大学启真交叉学科创新创业实验室EE自学手册项目
-site_author: 浙江大学启真交叉学科创新创业实验室硬件技术团队
-copyright: Copyright©️浙江大学启真交叉学科创新创业实验室 不可二次分发
+site_name: TanninNotes
+repo_url: https://github.com/superbra1n/TanninNotes
+repo_name: TanninNotes
+site_description: 个人学习笔记
+site_author: Tannin Rachel
+copyright: Copyright©️Tannin Rachel
 theme:
   name: material
-  logo: 'https://tannin-1316822731.cos.ap-nanjing.myqcloud.com/2024-02-08-%E4%BC%81%E4%B8%9A%E6%A0%87%E5%BF%97%E4%B8%8E%E6%A0%87%E5%87%86%E5%AD%97%E4%BD%93%EF%BC%88%E7%AE%80%E7%A7%B0%EF%BC%89%E7%BB%84%E5%90%88%E8%A7%84%E8%8C%83_%E4%B8%8A%E4%B8%8B%E7%BB%84%E5%90%88_%E5%8F%8D%E7%99%BD.png'
+  logo: 'https://tannin-1316822731.cos.ap-nanjing.myqcloud.com/head.png'
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -31,35 +31,3 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
-nav:
-  - 首页: index.md
-  - 编程基础:
-    - C语言入门: 编程基础/C语言入门.md
-    - C语言进阶: 编程基础/C语言进阶.md
-    - Python入门: 编程基础/Python入门.md
-    - Git: 编程基础/Git.md
-    - 代码规范: 编程基础/代码规范.md
-  - 嵌入式:
-    - 前言: 嵌入式开发/前言.md
-    - 梦开始的地方:Arduino: 嵌入式开发/梦开始的地方:Arduino.md
-    - Homepea:ESP32-Arduino框架: 嵌入式开发/Homepea:ESP32-Arduino框架.md
-    - 江协科技:STM32-标准库: 嵌入式开发/江协科技:STM32-标准库.md
-    - keysking:STM32-hal库: 嵌入式开发/keysking:STM32-hal库.md
-    - FreeRTOS: 嵌入式开发/FreeRTOS.md
-    - 进阶板块:
-      - ZynqSoC:
-        - Petalinux:
-          - Device Tree: 嵌入式开发/进阶板块/ZynqSoC/Petalinux/Device Tree.md
-          - Toolchain Setup: 嵌入式开发/进阶板块/ZynqSoC/Petalinux/Toolchain Setup.md
-    - 外设库:
-      - TFTLCD: 嵌入式开发/外设库/TFTLCD.md
-  - 电路设计:
-    - 电源:
-      - Notes on DCDC converters: 电路设计/电源/Notes on DCDC converters.md
-  - 工具:
-    - vscode: 工具/vscode.md
-    - EDA: 工具/EDA.md
-    - AD:
-      - 元件库的建立和维护: 工具/AD/元件库的建立和维护.md
-    - SquareLineStudio: 工具/SquareLineStudio.md
-    - 优质资源合集: 工具/优质资源合集.md
