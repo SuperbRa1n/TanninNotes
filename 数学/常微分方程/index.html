@@ -1,0 +1,3256 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人学习笔记">
+      
+      
+        <meta name="author" content="Tannin Rachel">
+      
+      
+      
+        <link rel="prev" href="../%E5%81%8F%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>常微分方程 - TanninNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TanninNotes" class="md-header__button md-logo" aria-label="TanninNotes" data-md-component="logo">
+      
+  <img src="https://tannin-1316822731.cos.ap-nanjing.myqcloud.com/head.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TanninNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              常微分方程
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/superbra1n/TanninNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TanninNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TanninNotes" class="md-nav__button md-logo" aria-label="TanninNotes" data-md-component="logo">
+      
+  <img src="https://tannin-1316822731.cos.ap-nanjing.myqcloud.com/head.png" alt="logo">
+
+    </a>
+    TanninNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/superbra1n/TanninNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TanninNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tannin's Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数学
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            数学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%81%8F%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    偏微分方程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    常微分方程
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    常微分方程
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶微分方程的求解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶微分方程的求解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶线性微分方程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶线性微分方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶线性齐次微分方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶线性非齐次微分方程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准形式的一阶非线性微分方程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="标准形式的一阶非线性微分方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量分离方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      齐次方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      恰当方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      积分因子法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      几个重要的非线性微分方程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他形式的一阶非线性微分方程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他形式的一阶非线性微分方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#y" class="md-nav__link">
+    <span class="md-ellipsis">
+      可解出\(y\)的微分方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    <span class="md-ellipsis">
+      可解出\(x\)的微分方程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      奇解
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      微分方程的一般理论
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="微分方程的一般理论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶常微分方程的几何含义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶常微分方程初值问题解的存在性和唯一性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶常微分方程初值问题解的存在性和唯一性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#euler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Euler折线——求过一点的近似积分曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Picard迭代序列
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peano" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peano存在性定理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picard_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Picard存在唯一性定理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      解的延拓与整体解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="解的延拓与整体解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      解的延拓
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      解的整体存在性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      比较定理与解的存在性估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      解的连续依赖性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      二阶微分方程的求解
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程（组）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性微分方程（组）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程组解的结构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性微分方程组解的结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      高阶微分方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      齐次线性微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      非齐次线性微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      高阶线性微分方程解的结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程组的求解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性微分方程组的求解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性齐次微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      常系数线性微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      常系数线性微分方程的求解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常系数线性微分方程的求解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      常系数线性齐次微分方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性非齐次微分方程的求解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性非齐次微分方程的求解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      常数变易法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      待定系数法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      变系数线性微分方程的一些解法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="变系数线性微分方程的一些解法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#euler_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Euler方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      降阶法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      幂级数解法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laplace变换法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      微分方程的稳定性理论
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="微分方程的稳定性理论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lyapunov" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lyapunov稳定性的基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      稳定性的线性近似判别法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="稳定性的线性近似判别法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程组零解的稳定性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      非线性微分方程组零解的稳定性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lyapunov_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      自治微分方程的Lyapunov第二方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      微分方程的几何理论
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="微分方程的几何理论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      自治微分方程组的相空间与轨线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      平面线性自治微分方程组的奇点分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="平面线性自治微分方程组的奇点分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      非退化线性微分方程组的轨线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      退化线性微分方程组的轨线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶微分方程的求解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶微分方程的求解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶线性微分方程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶线性微分方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶线性齐次微分方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶线性非齐次微分方程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准形式的一阶非线性微分方程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="标准形式的一阶非线性微分方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量分离方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      齐次方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      恰当方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      积分因子法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      几个重要的非线性微分方程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他形式的一阶非线性微分方程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他形式的一阶非线性微分方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#y" class="md-nav__link">
+    <span class="md-ellipsis">
+      可解出\(y\)的微分方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    <span class="md-ellipsis">
+      可解出\(x\)的微分方程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      奇解
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      微分方程的一般理论
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="微分方程的一般理论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶常微分方程的几何含义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      一阶常微分方程初值问题解的存在性和唯一性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶常微分方程初值问题解的存在性和唯一性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#euler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Euler折线——求过一点的近似积分曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Picard迭代序列
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peano" class="md-nav__link">
+    <span class="md-ellipsis">
+      Peano存在性定理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picard_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Picard存在唯一性定理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      解的延拓与整体解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="解的延拓与整体解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      解的延拓
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      解的整体存在性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      比较定理与解的存在性估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      解的连续依赖性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      二阶微分方程的求解
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程（组）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性微分方程（组）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程组解的结构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性微分方程组解的结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      高阶微分方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      齐次线性微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      非齐次线性微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      高阶线性微分方程解的结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程组的求解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性微分方程组的求解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性齐次微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      常系数线性微分方程组
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      常系数线性微分方程的求解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常系数线性微分方程的求解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      常系数线性齐次微分方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性非齐次微分方程的求解
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性非齐次微分方程的求解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      常数变易法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      待定系数法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      变系数线性微分方程的一些解法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="变系数线性微分方程的一些解法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#euler_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Euler方程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      降阶法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      幂级数解法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laplace变换法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      微分方程的稳定性理论
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="微分方程的稳定性理论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lyapunov" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lyapunov稳定性的基本概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      稳定性的线性近似判别法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="稳定性的线性近似判别法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性微分方程组零解的稳定性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      非线性微分方程组零解的稳定性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lyapunov_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      自治微分方程的Lyapunov第二方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      微分方程的几何理论
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="微分方程的几何理论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      自治微分方程组的相空间与轨线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      平面线性自治微分方程组的奇点分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="平面线性自治微分方程组的奇点分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      非退化线性微分方程组的轨线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      退化线性微分方程组的轨线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>常微分方程</h1>
+
+<h2 id="_1">一阶微分方程的求解</h2>
+<h3 id="_2">一阶线性微分方程</h3>
+<p>一阶线性微分方程的一般形式是
+$$
+\dfrac{\text{d}y}{\text{d}x}=p(x)y+q(x)
+$$
+其中<span class="arithmatex">\(p(x)\)</span>和<span class="arithmatex">\(q(x)\)</span>是定义在区间<span class="arithmatex">\(I=(a,b)\)</span>上已知的连续函数。当<span class="arithmatex">\(q(x)\not\equiv 0\)</span>时，方程称为<strong>一阶线性非齐次微分方程</strong>；当<span class="arithmatex">\(q(x)\equiv 0\)</span>时，方程称为<strong>一阶线性齐次微分方程</strong>。</p>
+<h4 id="_3">一阶线性齐次微分方程</h4>
+<p>一阶线性齐次微分方程为
+$$
+\dfrac{\text{d}y}{\text{d}x}=p(x)y
+$$
+它的通解可表示为
+$$
+y(x)=Ce^{\int p(x)\text{d}x}
+$$
+对于初值问题
+$$
+\dfrac{\text{d}y}{\text{d}x}=p(x)y,\quad y(x_0)=y_0
+$$
+满足初值的特解为
+$$
+y(x)=y_0e^{\int_{x_0}^xp(t)\text{d}t}
+$$</p>
+<h4 id="_4">一阶线性非齐次微分方程</h4>
+<p>考虑一阶线性非齐次微分方程
+$$
+\dfrac{\text{d}y}{\text{d}x}=p(x)y+q(x)
+$$
+其中<span class="arithmatex">\(p(x)\)</span>和<span class="arithmatex">\(q(x)\)</span>是定义在区间<span class="arithmatex">\(I=(a,b)\)</span>上已知的连续函数且<span class="arithmatex">\(q(x)\not\equiv 0\)</span>。
+在方程的两边同时乘积分因子<span class="arithmatex">\(e^{-\int p(x)\text{d}x}\)</span>，则原ODE等价为
+$$
+\dfrac{\text{d}}{\text{d}x}\left(e^{-\int p(x)\text{d}x}y\right)=e^{-\int p(x)\text{d}x}q(x)
+$$
+因此
+$$
+e^{-\int p(x)\text{d}x}y=\int q(x)e^{-\int p(x)\text{d}x}\text{d}x+C
+$$
+由此得到一阶线性非齐次微分方程的通解为
+$$
+y(x)=e^{\int p(x)\text{d}x}\left(C+\int q(x)e^{-\int p(x)\text{d}x}\text{d}x\right)
+$$
+对于初值问题
+$$
+\dfrac{\text{d}y}{\text{d}x}=p(x)y+q(x),\quad y(x_0)=y_0
+$$
+满足初值的特解可表示为
+$$
+y(x)=e^{\int_{x_0}^xp(t)\text{d}t}\left(y_0+\int_{x_0}^xq(s)e^{-\int_{x_0}^sp(t)\text{d}t}\text{d}s\right)
+$$</p>
+<h3 id="_5">标准形式的一阶非线性微分方程</h3>
+<h4 id="_6">变量分离方程</h4>
+<p>考虑形如
+$$
+\dfrac{\text{d}y}{\text{d}x}=f(x)g(y)
+$$
+的方程，通常称为<strong>变量分离方程</strong>，其中<span class="arithmatex">\(f(x)\)</span>是定义在<span class="arithmatex">\(I_x=(a,b)\)</span>上的连续函数，<span class="arithmatex">\(g(y)\)</span>是定义在<span class="arithmatex">\(I_y=(c,d)\)</span>的连续函数。
+由Picard存在唯一性定理，对于区域<span class="arithmatex">\(G=I_x\times I_y\)</span>中的每一点<span class="arithmatex">\((x_0,y_0)\)</span>，上述方程有且只有一个以它为初值的解。
+若<span class="arithmatex">\(g(y_0)\neq 0\)</span>，原ODE可化为
+$$
+\dfrac{\text{d}y}{g(y)}=f(x)\text{d}x
+$$
+这里由于Picard存在唯一性定理，<span class="arithmatex">\(g(y)\neq 0,\quad \forall y\in I_y\)</span>，否则存在两个解。
+令<span class="arithmatex">\(G(y,y_0)=\int_{y_0}^y\dfrac{\text{d}\xi}{g(\xi)}\)</span>，则原ODE可化为
+$$
+G(y,y_0)=\int_{x_0}^xf(t)\text{d}t
+$$
+因此原ODE初值问题的解为
+$$
+y(x)=G^{-1}(\int_{x_0}^xf(t)\text{d}t,y_0)
+$$</p>
+<h4 id="_7">齐次方程</h4>
+<p>如果函数<span class="arithmatex">\(f(x,y)\)</span>是关于变量<span class="arithmatex">\(x,y\)</span>的零次齐次函数，即对<span class="arithmatex">\(t\in\mathbb{R}\backslash\{0\}\)</span>，满足
+$$
+f(tx,ty)=f(x,y)
+$$
+则称ODE
+$$
+\dfrac{\text{d}y}{\text{d}x}=f(x,y)
+$$
+为<strong>齐次型方程</strong>，简称<strong>齐次方程</strong>。
+对零次齐次函数，有
+$$
+f(x,y)=f(1,\dfrac{y}{x})\triangleq g(\dfrac{y}{x})
+$$
+因此可以将原ODE化为
+$$
+\dfrac{\text{d}y}{\text{d}x}=g(\dfrac{y}{x})
+$$
+记<span class="arithmatex">\(u=\dfrac{y}{x}\)</span>，则
+$$
+\dfrac{\text{d}y}{\text{d}x}=x\dfrac{\text{d}u}{\text{d}x}+u
+$$
+因此原ODE可化为
+$$
+x\dfrac{\text{d}u}{\text{d}x}=f(1,u)-u
+$$
+<strong>例1：</strong> 求解ODE
+$$
+\dfrac{\text{d}y}{\text{d}x}=\dfrac{3x^2+y^2-6x+4y+7}{2xy+4x-2y-4}
+$$
+<em>解：</em> 原ODE化为
+$$
+\dfrac{\text{d}y}{\text{d}x}=\dfrac{3(x-1)^2+(y+2)^2}{2(x-1)(y+2)}
+$$
+取
+$$
+u=\dfrac{y+2}{x-1}
+$$
+则原ODE化为
+$$
+(x-1)\dfrac{\text{d}u}{\text{d}x}+u=\dfrac{3+u^2}{2u}
+$$
+分离变量得
+$$
+\dfrac{2u}{3-u^2}\text{d}u=\dfrac{\text{d}x}{x-1}
+$$
+两侧积分得
+$$
+-\ln|3-u^2|=\ln|x-1|+C
+$$
+因此
+$$
+u^2=3-\dfrac{C}{x-1}
+$$
+故ODE的通解为
+$$
+3(x-1)^2-C(x-1)-(y+2)^2=0
+$$
+<strong>例2：</strong> 求解微分方程
+$$
+y^2(x\text{d}x+y\text{d}y)+x^2(y\text{d}x-x\text{d}y)=0
+$$
+<em>解：</em> 原ODE可化为
+$$
+\dfrac{\text{d}y}{\text{d}x}=\dfrac{xy^2+x^2y}{x^3-y^3}
+$$
+这是一个齐次型方程，令<span class="arithmatex">\(u=\dfrac{y}{x}\)</span>，则
+$$
+x\dfrac{\text{d}u}{\text{d}x}+u=\dfrac{u^2+u}{1-u^3}
+$$
+因此
+$$
+x\dfrac{\text{d}u}{\text{d}x}=\dfrac{u^2(1-u^2)}{1-u^3}=\dfrac{u^2(1+u)}{u^2+u+1}
+$$
+分离变量得
+$$
+\int\dfrac{u^2+(1+u)}{u^2(1+u)}\text{d}u=\int\dfrac{1}{x}\text{d}x+C
+$$
+即
+$$
+\int\dfrac{\text{d}u}{1+u}+\int\dfrac{\text{d}u}{u^2}=\int\dfrac{1}{x}\text{d}x+C
+$$
+故原ODE的解为
+$$
+x+y=Cx^2e^{\frac{x}{y}}
+$$</p>
+<h4 id="_8">恰当方程</h4>
+<p>设<span class="arithmatex">\(G\)</span>是平面<span class="arithmatex">\(\mathbb{R}^2\)</span>中的一个区域，若在区域<span class="arithmatex">\(G\)</span>内存在一个具有一阶连续偏导数的二元函数<span class="arithmatex">\(F(x,y)\)</span>使得
+$$
+\text{d}F(x,y)=M(x,y)\text{d}x+N(x,y)\text{d}y
+$$
+则称一阶微分方程
+$$
+M(x,y)\text{d}x+N(x,y)\text{d}y=0
+$$
+为区域<span class="arithmatex">\(G\)</span>内的<strong>恰当方程</strong>，也称它为<strong>全微分方程</strong>。
+<strong>定理：</strong> 设函数<span class="arithmatex">\(M(x,y)\)</span>和<span class="arithmatex">\(N(x,y)\)</span>在单连通区域<span class="arithmatex">\(G\subset \mathbb{R}^2\)</span>上连续且有连续的一阶偏导数<span class="arithmatex">\(\dfrac{\partial M}{\partial y}\)</span>与<span class="arithmatex">\(\dfrac{\partial N}{\partial x}\)</span>，则微分方程
+$$
+M(x,y)\text{d}x+N(x,y)\text{d}y=0
+$$
+是恰当方程的充要条件是
+$$
+\dfrac{\partial M}{\partial y}=\dfrac{\partial N}{\partial x},\quad (x,y)\in G
+$$
+这时恰当方程在<span class="arithmatex">\(G\)</span>上的通解为
+$$
+\int_{x_0}^xM(x,y)\text{d}x+\int_{y_0}^yN(x_0,y)\text{d}y=C
+$$
+或
+$$
+\int_{x_0}^xM(x,y_0)\text{d}x+\int_{y_0}^yN(x,y)\text{d}y=C
+$$
+其中<span class="arithmatex">\((x_0,y_0)\)</span>是<span class="arithmatex">\(G\)</span>中任意固定的点。</p>
+<h4 id="_9">积分因子法</h4>
+<p>如果存在非零因子<span class="arithmatex">\(\mu(x,y)\)</span>使得方程
+$$
+\mu(x,y)M(x,y)\text{d}x+\mu(x,y)N(x,y)\text{d}y=0
+$$
+成为一个恰当方程，则称<span class="arithmatex">\(\mu(x,y)\)</span>为方程
+$$
+M(x,y)\text{d}x+N(x,y)\text{d}y=0
+$$
+的一个<strong>积分因子</strong>。
+<strong>定理：</strong> 方程<span class="arithmatex">\(M(x,y)\text{d}x+N(x,y)\text{d}y=0\)</span>存在仅含<span class="arithmatex">\(x\)</span>的积分因子<span class="arithmatex">\(\mu(x)\)</span>的充分必要条件为
+<span class="arithmatex">\(\dfrac{\partial M/\partial y-\partial N/\partial x}{N}\)</span>是一个仅与<span class="arithmatex">\(x\)</span>有关的函数。若记这个仅与<span class="arithmatex">\(x\)</span>有关的函数为<span class="arithmatex">\(g(x)\)</span>，则积分因子<span class="arithmatex">\(\mu(x)\)</span>可取为<span class="arithmatex">\(\mu(x)=e^{\int g(x)\text{d}x}\)</span>。</p>
+<blockquote>
+<p>对<span class="arithmatex">\(y\)</span>同理可推广类似的结论。
+<strong>常用微分公式：</strong>
+$$
+\text{d}(\dfrac{y}{x})=\dfrac{x\text{d}y-y\text{d}x}{x^2}
+$$
+$$
+\text{d}(\dfrac{x}{y})=\dfrac{y\text{d}x-x\text{d}y}{y^2}
+$$
+$$
+\text{d}(\arctan\dfrac{x}{y})=\dfrac{y\text{d}x-x\text{d}y}{x^2+y^2}
+$$
+$$
+\text{d}(\ln\dfrac{x}{y})=\dfrac{y\text{d}x-x\text{d}y}{xy}
+$$
+<strong>例：</strong> 求解微分方程
+$$
+\left(\dfrac{y}{x}+3x^2\right)\text{d}x+\left(1+\dfrac{x^3}{y}\right)\text{d}y=0
+$$
+<em>解：</em> 把方程重写为
+$$
+\dfrac{y}{x}\text{d}x+\text{d}y+3x^2\text{d}x+\dfrac{x^3}{y}\text{d}y=0
+$$
+显然，方程<span class="arithmatex">\(\dfrac{y}{x}\text{d}x+\text{d}y=0\)</span>有积分因子<span class="arithmatex">\(\mu_1=x\)</span>和通解<span class="arithmatex">\(\Phi_1(x,y)=xy=C_1\)</span>；方程<span class="arithmatex">\(3x^2\text{d}x+\dfrac{x^3}{y}\text{d}y=0\)</span>有积分因子<span class="arithmatex">\(\mu_2=y\)</span>和通解<span class="arithmatex">\(\Phi_2(x,y)=x^3y=C_2\)</span>。为求得两个可微函数<span class="arithmatex">\(g_1\)</span>和<span class="arithmatex">\(g_2\)</span>使得
+$$
+xg_1(xy)=yg_2(x^3y)
+$$
+可以令<span class="arithmatex">\(g_1(t)=t^\alpha,g_2(t)=t^\beta\)</span>，则
+$$
+x(xy)^{\alpha}=y(x^3y)^{\beta}
+$$
+待定系数法可以解得<span class="arithmatex">\(\alpha=2,\beta=1\)</span>，因此<span class="arithmatex">\(\mu=x^3y^2\)</span>是原方程的一个积分因子，带入后有
+$$
+x^2y^3\text{d}x+x^3y^2\text{d}y+3x^5y^2\text{d}x+x^6y\text{d}y=0
+$$
+即
+$$
+(x^2y^3+3x^5y^2)\text{d}x+(x^3y^2+x^6y)\text{d}y=0
+$$
+此时可以验证
+$$
+\dfrac{\partial (x^2y^3+3x^5y^2)}{\partial y}=\dfrac{\partial (x^3y^2+x^6y)}{\partial x}=3x^2y^2+6x^5y
+$$
+设原ODE的通解为<span class="arithmatex">\(F(x,y)=C\)</span>，则
+$$
+F(x,y)=\int (x^2y^3+3x^5y^2)\text{d}x+\psi(y)=\dfrac{1}{3}x^3y^3+\dfrac{1}{2}x^6y^2+\psi(y)
+$$
+因此
+$$
+\dfrac{\partial F}{\partial y}=x^3y^2+x^6y+\psi'(y)=x^3y^2+x^6y
+$$
+故<span class="arithmatex">\(\psi'(y)=0\)</span>，即原方程的通解为
+$$
+\dfrac{1}{3}x^3y^3+\dfrac{1}{2}x^6y^2=C
+$$</p>
+</blockquote>
+<h4 id="_10">几个重要的非线性微分方程</h4>
+<ol>
+<li>Bernoulli方程
+$$
+y'+g(x)y+h(x)y^{\alpha}=0\quad (\alpha\neq 0,1)
+$$
+其中<span class="arithmatex">\(g(x)\)</span>和<span class="arithmatex">\(h(x)\)</span>都是定义在区间<span class="arithmatex">\(I=(a,b)\)</span>上的连续函数。
+     在方程两边同时乘积分因子<span class="arithmatex">\((1-\alpha)y^{-\alpha}\)</span>得
+$$
+(y^{1-\alpha})'+(1-\alpha)g(x)y^{1-\alpha}+(1-\alpha)h(x)=0
+$$
+令<span class="arithmatex">\(z=y^{1-\alpha}\)</span>，则化为一阶线性微分方程。</li>
+<li>Riccati方程
+$$
+y'+g(x)y+h(x)y^2=k(x)
+$$
+其中<span class="arithmatex">\(g(x)\)</span>，<span class="arithmatex">\(h(x)\)</span>和<span class="arithmatex">\(k(x)\)</span>都是定义在区间<span class="arithmatex">\(I=(a,b)\)</span>上的连续函数。
+    假设能得到它的一个特解<span class="arithmatex">\(\phi(x)\)</span>，即可构造<span class="arithmatex">\(u(x)=y(x)-\phi(x)\)</span>，使得<span class="arithmatex">\(u(x)\)</span>满足Bernoulli方程，进而可以求解。</li>
+</ol>
+<h3 id="_11">其他形式的一阶非线性微分方程</h3>
+<h4 id="_12">参数法</h4>
+<p>对于一般的一阶ODE
+$$
+F(x,y,y')=0
+$$
+可以通过参数法求解。
+基本步骤：
+1. 选取曲面<span class="arithmatex">\(F(x,y,w)=0\)</span>的一个参数表示
+$$
+x=\varphi(t,s),\quad y=\psi(t,s),\quad w=h(t,s),\quad (s,t)\in G
+$$
+即满足<span class="arithmatex">\(F(\varphi(t,s),\psi(t,s),h(t,s))\equiv 0\)</span>；
+2. 求解一阶微分方程<span class="arithmatex">\(\text{d}y=w\text{d}x\)</span>，即由
+$$
+\text{d}\psi(t,s)=h(t,s)\text{d}\varphi(t,s)
+$$
+解得<span class="arithmatex">\(s=s(t,C)\)</span>，其中<span class="arithmatex">\(C\)</span>为任意常数；
+3. 由参数方程
+$$
+x=\varphi(t,s(t,C)),\quad y=\psi(t,s(t,C))
+$$
+所确定的函数关系<span class="arithmatex">\(y=y(x,C)\)</span>即为方程的通解。</p>
+<h4 id="y">可解出<span class="arithmatex">\(y\)</span>的微分方程</h4>
+<p>对于方程<span class="arithmatex">\(y=f(x,y')\)</span>，记<span class="arithmatex">\(p=y'\)</span>，则可得
+$$
+f'_x(x,p)\text{d}x+f'_p(x,p)\text{d}p=p\text{d}x
+$$
+视情况取<span class="arithmatex">\(x\)</span>或<span class="arithmatex">\(p\)</span>为自变量即可求解该方程，记其通解为<span class="arithmatex">\(p=w(x,C)\)</span>，即可得到方程的通解。</p>
+<h4 id="x">可解出<span class="arithmatex">\(x\)</span>的微分方程</h4>
+<p>对于方程<span class="arithmatex">\(x=f(y,y')\)</span>，记<span class="arithmatex">\(p=y'\)</span>，则可得
+$$
+f_y'(y,p)\text{d}y+f_p'(y,p)\text{d}p=\dfrac{1}{p}\text{d}y
+$$
+视情况取<span class="arithmatex">\(y\)</span>或<span class="arithmatex">\(p\)</span>为自变量即可求解该方程，记其通解为<span class="arithmatex">\(p=w(y,C)\)</span>，即可得到方程的通解。
+<strong>例1：</strong> 求解方程<span class="arithmatex">\(x^3+y'^3-3xy'=0\)</span>。
+<em>解：</em> <span class="arithmatex">\(F(x,y,w)=x^3+w^3-3xw\)</span>，令<span class="arithmatex">\(w=tx\)</span>，则可解出<span class="arithmatex">\(x=\dfrac{3t}{1+t^3}\)</span>。故参数化表示为
+$$
+x=\dfrac{3t}{1+t^3},\quad y=y,\quad w=\dfrac{3t^2}{1+t^3}
+$$
+由<span class="arithmatex">\(\text{d}y=w\text{d}x\)</span>得
+$$
+\text{d}t=\dfrac{3t^2}{1+t^3}\dfrac{3(t^3+1)-9t^3}{(1+t^3)^2}\text{d}t
+$$
+积分得
+$$
+y=\int\dfrac{9(1-2t^3)t^2}{(1+t^3)^3}\text{d}t=\dfrac{3}{2}\dfrac{1+4t^3}{(1+t^3)^2}+C
+$$
+其中<span class="arithmatex">\(C\)</span>为任意常数。因此原方程的通解为
+$$
+x=\dfrac{3t}{1+t^3},\quad y=\dfrac{3}{2}\dfrac{1+4t^3}{(1+t^3)^2}+C
+$$
+<strong>例2：</strong> 求解微分方程
+$$
+9e^{3y}(y')^2+3xy'-1=0
+$$
+<em>解1：</em> 令<span class="arithmatex">\(p=y'\)</span>，则原ODE可写成
+$$
+x=\dfrac{1-9e^{3y}p^2}{3p}
+$$
+则
+$$
+\dfrac{1}{p}\text{d}y=-9e^{3y}p\text{d}y+(-\dfrac{1}{3p^2}-3e^{3y})\text{d}p
+$$
+由于<span class="arithmatex">\(-\dfrac{1}{3p^2}-3e^{3y}&lt;0\)</span>，因此有
+$$
+\dfrac{\text{d}p}{\text{d}y}=\dfrac{\frac{1}{p}+9e^{3y}p}{-\frac{1}{3p^2}-3e^{3y}}=-3p
+$$
+因此可以求出<span class="arithmatex">\(p=C_1e^{-3y}\)</span>，带入原ODE有
+$$
+9e^{3y}C_1^2e^{-6y}+3C_1xe^{-3y}-1=0
+$$
+因此可解得ODE通解为
+$$
+x=Ce^{3y}-\dfrac{1}{C}
+$$
+<em>解2：</em> 原ODE可化为
+$$
+9e^{6y}(y')^2+x(3e^{3y}y')-e^{3y}=0
+$$
+令<span class="arithmatex">\(u=e^{3y}\)</span>，则
+$$
+(u')^2+xu'-u=0
+$$
+令<span class="arithmatex">\(p=u'\)</span>，则
+$$
+u=p^2+xp
+$$
+故
+$$
+\text{d}u=p\text{d}x=(2p+x)\text{d}p+p\text{d}x
+$$
+因此<span class="arithmatex">\(p=-\dfrac{x}{2}\)</span>或<span class="arithmatex">\(p=C_1\)</span>。
+由于<span class="arithmatex">\(p=-\dfrac{x}{2}\)</span>时<span class="arithmatex">\(u=-\dfrac{x^2}{4}\)</span>不满足<span class="arithmatex">\(u&gt;0\)</span>，故取<span class="arithmatex">\(p=C_1\)</span>。此时
+$$
+u=C_1^2+C_1x=e^{3y}
+$$
+因此ODE的通解为
+$$
+x=Ce^{3y}-\dfrac{1}{C}
+$$</p>
+<h3 id="_13">奇解</h3>
+<p><strong>定义（奇解）：</strong> 设函数<span class="arithmatex">\(y=\phi(x)\)</span>在某区间<span class="arithmatex">\(J\)</span>上有定义且是一阶微分方程
+$$
+F(x,y,y')=0
+$$
+的一个特解，其积分曲线为
+$$
+\Gamma={(x,y)\mid y=\phi(x),x\in J}
+$$
+若对每一点<span class="arithmatex">\(M\in\Gamma\)</span>，在<span class="arithmatex">\(M\)</span>的任意邻域内ODE：<span class="arithmatex">\(F(x,y,y')=0\)</span>都有一个不同于特解<span class="arithmatex">\(\phi(x)\)</span>的解在点<span class="arithmatex">\(M\)</span>与<span class="arithmatex">\(\Gamma\)</span>相切，则称特解<span class="arithmatex">\(y=\phi(x)\)</span>时方程<span class="arithmatex">\(F(x,y,y')=0\)</span>的一个<strong>奇解</strong>。
+<strong>定理（奇解存在的必要条件）：</strong> 设函数<span class="arithmatex">\(F(x,y,p)\)</span>对<span class="arithmatex">\((x,y,p)\in G\)</span>是连续的，而且对<span class="arithmatex">\(y\)</span>和<span class="arithmatex">\(p\)</span>的偏导数<span class="arithmatex">\(F_y\)</span>和<span class="arithmatex">\(F_p\)</span>在区域<span class="arithmatex">\(G\)</span>中是连续的。若函数<span class="arithmatex">\(y=\phi(x)(x\in J)\)</span>是微分方程<span class="arithmatex">\(F(x,y,y')=0\)</span>的一个奇解，并且
+$$
+(x,\phi(x),\phi'(x))\in G(x\in J)
+$$
+则奇解<span class="arithmatex">\(y=\phi(x)\)</span>满足如下的联立方程组：
+$$
+\begin{cases}
+F(x,y,p)=0,\
+F_p(x,y,p)=0
+\end{cases}
+$$
+其中<span class="arithmatex">\(p=\dfrac{\text{d}\phi(x)}{\text{d}x}\)</span>。
+这里，称该联立方程组为 <span class="arithmatex">\(p\)</span><strong>-判别式</strong>。从该方程组中消去<span class="arithmatex">\(p\)</span>得到的曲线方程
+$$
+C(x,y)=0
+$$
+称为<span class="arithmatex">\(p\)</span><strong>-判别曲线</strong>。因此，微分方程<span class="arithmatex">\(F(x,y,y')=0\)</span>的奇解是一条<span class="arithmatex">\(p\)</span>-判别曲线。
+<strong>定理（奇解的验证方法）：</strong> 设函数<span class="arithmatex">\(F(x,y,p)\)</span>对<span class="arithmatex">\((x,y,p)\in G\)</span>是二阶连续可微的。又设由微分方程的<span class="arithmatex">\(p\)</span>-判别式
+$$
+\begin{cases}
+F(x,y,p)=0,\
+F_p(x,y,p)=0
+\end{cases}
+$$
+消去<span class="arithmatex">\(p\)</span>后得到的函数<span class="arithmatex">\(y=\phi(x)(x\in J)\)</span>是微分方程<span class="arithmatex">\(F(x,y,y')=0\)</span>的解，而且条件
+$$
+\begin{cases}
+F_y(x,\phi(x),\phi'(x))\neq 0,\
+F_{pp}(x,\phi(x),\phi'(x))\neq 0,\
+F_p(x,\phi(x),\phi'(x))=0
+\end{cases}
+$$
+对于<span class="arithmatex">\(x\in J\)</span>成立，则<span class="arithmatex">\(y=\phi(x)\)</span>是微分方程<span class="arithmatex">\(F(x,y,y')=0\)</span>的奇解。
+<strong>定义（包络）：</strong> 设单参数<span class="arithmatex">\(C\)</span>的曲线族
+$$
+K(C):V(x,y,C)=0
+$$
+其中函数<span class="arithmatex">\(V(x,y,C)\)</span>对<span class="arithmatex">\((x,y,C)\in D\)</span>是连续可微的。在平面上有一条连续可微的曲线<span class="arithmatex">\(\Gamma\)</span>，如果对于任一点<span class="arithmatex">\(Q\in\Gamma\)</span>，在曲线族<span class="arithmatex">\(K(C)\)</span>中都有一条曲线<span class="arithmatex">\(K(C^*)\)</span>通过<span class="arithmatex">\(Q\)</span>点并在该点与<span class="arithmatex">\(\Gamma\)</span>相切，而且曲线<span class="arithmatex">\(K(C^*)\)</span>在<span class="arithmatex">\(Q\)</span>点的某邻域内不同于<span class="arithmatex">\(\Gamma\)</span>，则称曲线<span class="arithmatex">\(\Gamma\)</span>为曲线族<span class="arithmatex">\(K(C)\)</span>的一支<strong>包络</strong>。
+<strong>定理（包络和奇解的关系）：</strong> 设微分方程
+$$
+F(x,y,y')=0
+$$
+的解为
+$$
+V(x,y,C)=0
+$$
+又设积分曲线族<span class="arithmatex">\(V(x,y,C)=0\)</span>的包络为
+$$
+\Gamma:y=\phi(x)(x\in J)
+$$
+则包络<span class="arithmatex">\(y=\phi(x)\)</span>是微分方程<span class="arithmatex">\(F(x,y,y')=0\)</span>的奇解。
+<strong>定理（包络的必要条件）：</strong> 设<span class="arithmatex">\(\Gamma\)</span>是曲线族<span class="arithmatex">\(K(C):V(x,y,C)=0\)</span>的一支包络，并且有如下的参数表达式：
+$$
+x=f(C),\quad y=g(C)(C\in I)
+$$
+其中<span class="arithmatex">\(f(C)\)</span>和<span class="arithmatex">\(g(C)\)</span>对<span class="arithmatex">\(C\)</span>是连续可微的，<span class="arithmatex">\(C\)</span>是曲线族<span class="arithmatex">\(K(C)\)</span>的参数，则它满足如下的<span class="arithmatex">\(C\)</span><strong>-判别式</strong>：
+$$
+\begin{cases}
+V(x,y,C)=0,\
+V_C(x,y,C)=0
+\end{cases}
+$$
+消去<span class="arithmatex">\(C\)</span>得
+$$
+\Omega(x,y)=0
+$$
+<strong>定理（包络的验证方法）：</strong> 设由曲线族<span class="arithmatex">\(K(C):V(x,y,C)=0\)</span>的<span class="arithmatex">\(C\)</span>-判别式
+$$
+V(x,y,C)=0,\quad V_C(x,y,C)=0
+$$
+确定一支连续可微且不含于曲线族<span class="arithmatex">\(K(C)\)</span>的曲线
+$$
+\Gamma:x=\phi(C),\quad y=\psi(C)(C\in J)
+$$
+且它满足非退化性条件
+$$
+(\phi'(C),\psi'(C))\neq (0,0),\quad (V_x,V_y)(\phi(C),\psi(C),C)\neq (0,0)
+$$
+则<span class="arithmatex">\(\Gamma\)</span>是曲线族<span class="arithmatex">\(K(C)\)</span>的一支包络。
+<strong>例：</strong> 求以单位圆上的一个定点<span class="arithmatex">\(P(1,0)\)</span>和一个动点<span class="arithmatex">\(Q(\cos\theta,\sin\theta)\)</span>连线为直径的曲线族的包络。
+<em>解：</em> 该曲线族为
+$$
+\left(x-\dfrac{1+\cos\theta}{2}\right)^2+\left(y-\dfrac{\sin\theta}{2}\right)^2=(\cos\theta-1)^2+\sin^2\theta
+$$
+记
+$$
+V(x,y,\theta)=\left(x-\dfrac{1+\cos\theta}{2}\right)^2+\left(y-\dfrac{\sin\theta}{2}\right)^2-(\cos\theta-1)^2-\sin^2\theta
+$$
+后面就求出<span class="arithmatex">\(V_{\theta}(x,y,\theta)\)</span>后消去<span class="arithmatex">\(\theta\)</span>再验证是否是包络。</p>
+<h2 id="_14">微分方程的一般理论</h2>
+<p>主要研究一阶ODE的初值问题
+$$
+\begin{cases}
+\dfrac{\text{d}y}{\text{d}x}=f(x,y)\
+y(x_0)=y_0
+\end{cases}
+$$
+的解的性质。</p>
+<h3 id="_15">一阶常微分方程的几何含义</h3>
+<p><strong>方向场：</strong> 一阶ODE<span class="arithmatex">\(y'=f(x,y)\)</span>中，<span class="arithmatex">\(f(x,y)\)</span>在区域<span class="arithmatex">\(G\)</span>中有定义，以<span class="arithmatex">\((x,y)\)</span>为中心作一单位线段，使其斜率为<span class="arithmatex">\(k=f(x,y)\)</span>，称为在点<span class="arithmatex">\((x,y)\)</span>的<strong>线素</strong>，这样就在区域<span class="arithmatex">\(G\)</span>中确定了一个<strong>方向场</strong>。在方向场中，方向相同的点的几何轨迹称为<strong>等斜线</strong>，即<span class="arithmatex">\(f(x,y)=k\)</span>，<span class="arithmatex">\(k\)</span>为参数。
+<strong>积分曲线：</strong> 假设方程<span class="arithmatex">\(y'=f(x,y)\)</span>的解<span class="arithmatex">\(y=\varphi(x)\)</span>在某个区间<span class="arithmatex">\(J\)</span>上有定义，则其图像<span class="arithmatex">\(y=\varphi(x)\in C^1(J), x\in J\)</span>。几何上，这是<span class="arithmatex">\((x,y)\)</span>平面上的一条<span class="arithmatex">\(C^1\)</span>曲线，称为方程的<strong>积分曲线</strong>或<strong>解曲线</strong>。
+<strong>定理：</strong> <span class="arithmatex">\(L\)</span>为ODE：<span class="arithmatex">\(y'=f(x,y)\)</span>的积分曲线的充要条件：在<span class="arithmatex">\(L\)</span>上的任意一点，<span class="arithmatex">\(L\)</span>的切线方向与<span class="arithmatex">\(y'=f(x,y)\)</span>所确定的方向场在该点方向重合（即相切）。</p>
+<h3 id="_16">一阶常微分方程初值问题解的存在性和唯一性</h3>
+<h4 id="euler">Euler折线——求过一点的近似积分曲线</h4>
+<p>假设初值问题在矩形区域<span class="arithmatex">\(G=\{(x,y)\mid |x-x_0|\leq a,\ |y-y_0|\leq b\}\)</span>。并且<span class="arithmatex">\(f(x,y)\)</span>在给定区域上连续且有界，上界为<span class="arithmatex">\(M\)</span>。记<span class="arithmatex">\(\alpha=\min\{a,\dfrac{b}{M}\}\)</span>，分点为：
+$$
+x_k=x_0+kh,\quad k=0,1,\cdots, n,\quad h=\dfrac{\alpha}{n},\quad x_n=x_0+\alpha
+$$
+用经过<span class="arithmatex">\((x_0,y_0)\)</span>且斜率为<span class="arithmatex">\(f(x_0,y_0)\)</span>的线段来近似积分曲线，则
+$$
+y=f(x_0,y_0)(x-x_0)+y_0
+$$
+故有
+$$
+y_k=y_{k-1}+f(x_{k-1},y_{k-1})h,\quad k=1,2,\cdots,n
+$$
+因此Euler折线的计算公式为：
+$$
+y=\varphi_n(x)=\left{\begin{array}{lc}
+y_0+\sum_{j=0}^{k-1}f(x_j,y_j)h+f(x_k,y_k)h(x-x_k), &amp; x_k\leq x\leq x_{k+1},k\geq 1\
+y_0+f(x_0,y_0)(x-x_0), &amp; x_{-1}\leq x\leq x_1\
+y_0-\sum_{j=1}^{k-1}f(x_j,y_j)h+f(x_k,y_k)h(x-x_k), &amp; x_{k-1}\leq x\leq x_k, k\leq -1
+\end{array}\right.
+$$</p>
+<h4 id="picard">Picard迭代序列</h4>
+<p>初值问题是等价于积分方程：
+$$
+y(x)=y_0+\int_{x_0}^xf(t,y(t))\text{d}t
+$$
+构造Picad迭代序列<span class="arithmatex">\(\{\varphi_n(x)\}\)</span>：
+$$
+\begin{cases}
+\varphi_0(x)=y_0\
+\varphi_n(x)=y_0+\int_{x_0}^xf(\xi,\varphi_{n-1}(\xi))\text{d}\xi
+\end{cases}\quad ,\quad x_0\leq x\leq x_0+h
+$$</p>
+<h4 id="peano">Peano存在性定理</h4>
+<p>考虑在区间<span class="arithmatex">\(I=[a,b]\)</span>上连续的函数序列<span class="arithmatex">\(\{f_n(x)\}_{n=1}^{\infty}\)</span>。
+<strong>等度连续：</strong> <span class="arithmatex">\(\forall \varepsilon&gt;0,\ \exists\delta=\delta(\varepsilon)\)</span>，当<span class="arithmatex">\(x_1,x_2\in I\)</span>且<span class="arithmatex">\(|x_1-x_2|&lt;\delta\)</span>时，<span class="arithmatex">\(\forall n\in N\)</span>，有
+$$
+|f_n(x_1)-f_n(x_2)|&lt;\varepsilon
+$$
+成立，则称连续函数序列<span class="arithmatex">\(\{f_n(x)\}_{n=1}^{\infty}\)</span>在<span class="arithmatex">\(I\)</span>上等度连续。
+<strong>一致有界：</strong> 若存在一个与<span class="arithmatex">\(x\)</span>和<span class="arithmatex">\(n\)</span>都无关的常数<span class="arithmatex">\(K\)</span>，使得
+$$
+|f_n(x)|\leq K,\quad \forall x\in I,\quad \forall n\in N
+$$
+成立，则称<span class="arithmatex">\(\{f_n(x)\}_{n-1}^{\infty}\)</span>在<span class="arithmatex">\(I\)</span>上一致有界。
+<strong>Ascoli-Arzela定理：</strong> 有限闭区间<span class="arithmatex">\(I\)</span>上一致有界、等度连续的函数序列<span class="arithmatex">\(\{f_n(x)\}_{n-1}^{\infty}\)</span>至少存在一个在<span class="arithmatex">\(I\)</span>上一致收敛的子序列<span class="arithmatex">\(\{f_{n_k}(x)\}_{k=1}^{\infty}\)</span>，并且其极限函数<span class="arithmatex">\(f(x)\)</span>在<span class="arithmatex">\(I\)</span>上连续。
+<em>Proof.</em> 取<span class="arithmatex">\(A=I\cap\mathbb{Q}\)</span>是<span class="arithmatex">\(I\)</span>的一个稠密子集，<span class="arithmatex">\(A=\{x_1,x_2,\cdots\}\)</span>.
+<em>Step 1.</em> 证明子列在<span class="arithmatex">\(A\)</span>上收敛：
+<span class="arithmatex">\(\forall n\in N\)</span>，有<span class="arithmatex">\(|f_n(x_1)|\leq K\)</span>。则存在一个收敛子列<span class="arithmatex">\(\{f_{n_k}^{(1)}(x_1)\}\)</span>；
+<span class="arithmatex">\(\forall n\in N\)</span>，有<span class="arithmatex">\(|f_n(x_2)|\leq K\)</span>。则<span class="arithmatex">\(\{f_{n_k}^{(2)}(x_2)\}\)</span>是<span class="arithmatex">\(\{f_{n_k}^{(1)}(x_2)\}\)</span>的一个收敛子列；
+……
+取<span class="arithmatex">\(\{g_k(x)\}=\{f_{n_k}^{(k)}(x)\}\)</span>，则在<span class="arithmatex">\(x\in A\)</span>上是收敛的。
+<em>Step 2.</em> <span class="arithmatex">\(\forall\varepsilon&gt;0,\ \exists\delta=\delta(\varepsilon)&gt;0,\ \forall|x_1-x_2|&lt;\delta\)</span>，都有
+$$
+|g_n(x_1)-g_n(x_2)|&lt;\varepsilon,\quad \forall n\in N
+$$
+取<span class="arithmatex">\(I\)</span>的一个分解<span class="arithmatex">\(I=\bigcup_{i=1}^MI_i\)</span>，使得<span class="arithmatex">\(|I_i|\leq\delta\)</span>，并且<span class="arithmatex">\(\exists\widetilde{x_i}\in A\cap I_i\)</span>，则<span class="arithmatex">\(\{g_n(\widetilde{x_i})\}\)</span>是一个Cauchy列，则<span class="arithmatex">\(\exists N_i,\ m,n\geq N_i\)</span>时，有
+$$
+|g_m(\widetilde{x_i})-g_n(\widetilde{x_i})|&lt;\varepsilon
+$$
+取<span class="arithmatex">\(N=\max_{1\leq i\leq M}\{N_i\}\)</span>，当<span class="arithmatex">\(m,n\geq N\geq N_i\)</span>时，<span class="arithmatex">\(\forall x\in I,\exists I_i\)</span>使得<span class="arithmatex">\(x\in I_i,\ \widetilde{x_i}\in I_i\)</span>，则
+$$
+|g_m(x)-g_n(x)|\leq |g_m(x)-g_m(\widetilde{x_i})|+|g_m(\widetilde{x_i})-g_n(\widetilde{x_i})|+|g_n(\widetilde{x_i})-g_n(x)|&lt;3\varepsilon
+$$
+因此对固定<span class="arithmatex">\(x\in I\)</span>，<span class="arithmatex">\(\{g_n(x)\}\)</span>是Cauchy列。并且其极限是连续的。
+<strong>Peano存在性定理：</strong> 若<span class="arithmatex">\(f(x,y)\)</span>在矩形区域<span class="arithmatex">\(G=\{(x,y)\mid |x-x_0|\leq a,\ |y-y_0|\leq b\}\)</span>上连续。则ODE的初值问题在区间<span class="arithmatex">\([x_0-\alpha,x_0+\alpha]\)</span>上至少存在一个解。其中<span class="arithmatex">\(\alpha=\min\left\{a,\dfrac{b}{M}\right\},M=\max_{(x,y)\in G}|f(x,y)|\)</span>。
+<em>Proof.</em> 分两步证明。(i)证明Euler折线序列是一致有界、等度连续的；(ii)其收敛子列的极限是方程的解。
+(i)只需要证明右行解，左行解同理。因此构造Euler折线序列
+$$
+\varphi_n(x)=\left{\begin{array}{lc}
+y_0+f(x_0,y_0)(x-x_0), &amp; x\in [x_0,x_1]\
+y_0+\sum_{j=0}^{k-1}f(x_j,y_j)h+f(x_k,y_k)h(x-x_k), &amp; x\in [x_k,x_{k+1}]
+\end{array}\right.
+$$
+则有
+$$
+|\varphi_n(x)-y_0|\leq\sum_{i=0}^{k-1}Mh+M(x-x_k)=M(x-x_0)=M\alpha\leq b
+$$
+因此是一致有界的。同时，<span class="arithmatex">\(\forall x_1,x_2\in [x_0,x_0+\alpha]\)</span>，有
+$$
+|\varphi_n(x_1)-\varphi_n(x_2)|\leq M|x_1-x_2|&lt;\varepsilon,\quad |x_1-x_2|&lt;\delta=\dfrac{\varepsilon}{M}
+$$
+因此<span class="arithmatex">\(\{\varphi_n(x)\}\)</span>是一致有界、等度连续的。
+(ii)已知函数满足积分方程
+$$
+y(x)=y_0+\int_{x_0}^xf(t,y(t))\text{d}t
+$$
+定义：
+$$
+\Phi_n(x)=y_0+\sum_{i=0}^{k-1}\int_{x_i}^{x_i+h}f(t,\varphi_n(t))\text{d}t+\int_{x_k}^xf(t,\varphi_n(t))\text{d}t,\quad x\in [x_k,x_{k+1}]
+$$
+要证明<span class="arithmatex">\(\{\Phi_n(x)\}\)</span>与<span class="arithmatex">\(\{\varphi_n(x)\}\)</span>收敛到同一个函数，即<span class="arithmatex">\(\lim_{n\to\infty}|\Phi_n(x)-\varphi_n(x)|=0\)</span>。
+$$
+\begin{aligned}
+|\Phi_n(x)-\varphi_n(x)|&amp;\leq\sum_{i=0}^{k-1}\int_{x_i}^{x_i+h}|f(t,\varphi_n(t))-f(x_i,\varphi_n(x_i))|\text{d}t\
+&amp;+\int_{x_k}^x|f(t,\varphi_n(t))-f(x_k,\varphi_n(x_k))|\text{d}t
+\end{aligned}
+$$
+由<span class="arithmatex">\(f\)</span>的连续性，<span class="arithmatex">\(\forall\varepsilon&gt;0,\exists\delta&gt;0,\forall (t,s),(x,y)\in G\)</span>，如果<span class="arithmatex">\(|t-x|+|s-y|&lt;\delta\)</span>，则
+$$
+|f(t,s)-f(x,y)|&lt;\varepsilon
+$$
+因此当<span class="arithmatex">\(n\to\infty\)</span>时，有
+$$
+|\Phi_n(x)-\varphi_n(x)|\leq\varepsilon(x-x_0)\leq\varepsilon\alpha
+$$
+因此<span class="arithmatex">\(\lim_{n\to\infty}|\Phi_n(x)-\varphi_n(x)|=0\)</span>。
+取<span class="arithmatex">\(\{\varphi_n(x)\}\)</span>的收敛子列<span class="arithmatex">\(\{\varphi_{n_k}(x)\}\)</span>，记其极限为<span class="arithmatex">\(\varphi(x)\)</span>，则有<span class="arithmatex">\(\lim_{k\to\infty}\Phi_{n_k}(x)=\varphi(x)\)</span>。带入<span class="arithmatex">\(\Phi_n(x)\)</span>的定义式可以得到<span class="arithmatex">\(\varphi(x)\)</span>是积分方程的解。</p>
+<h4 id="picard_1">Picard存在唯一性定理</h4>
+<p><strong>Lipschitz条件：</strong> 对于区域<span class="arithmatex">\(G\)</span>中的某个有界闭集<span class="arithmatex">\(K\subset G\)</span>，存在一个常数<span class="arithmatex">\(L_K&gt;0\)</span>，使得<span class="arithmatex">\(\forall (x_1,y_1),(x_2,y_2)\in K\)</span>，有
+$$
+|f(x_1,y_1)-f(x_2,y_2)|\leq L_K|y_1-y_2|
+$$
+都成立，则称<span class="arithmatex">\(f(x,y)\)</span>在<span class="arithmatex">\(G\)</span>中关于<span class="arithmatex">\(y\)</span>满足（局部）Lipschitz条件。<span class="arithmatex">\(L_K\)</span>称为Lipschitz常数。简写为
+$$
+f\in\operatorname{Lip}<em x_0="x_0">y(G)
+$$
+<strong>Picard存在唯一性定理：</strong> 设<span class="arithmatex">\(f(x,y)\)</span>在矩形区域<span class="arithmatex">\(G=\{(x,y)\mid |x-x_0|\leq a,\ |y-y_0|\leq b\}\)</span>内连续，且<span class="arithmatex">\(f\in\operatorname{Lip}_y(G)\)</span>，则ODE的初值问题在区间<span class="arithmatex">\([x_0-\alpha,x_0+\alpha]\)</span>上有且仅有一个解。其中<span class="arithmatex">\(\alpha=\min\left\{a,\dfrac{b}{M}\right\},M=\max_{(x,y)\in G}|f(x,y)|\)</span>。
+<em>Proof.</em> 构造Picard迭代序列：
+$$
+\begin{cases}
+\phi_0(x)=y_0\
+\phi_n(x)=y_0+\int</em>t,\quad n=0,1,2,\cdots
+\end{cases}
+$$
+(i)首先证明}^xf(t,\phi_{n-1}(t))\text{d<span class="arithmatex">\((x,\phi_n(x))\)</span>不会超出区域<span class="arithmatex">\(G\)</span>：
+$$
+|\phi_n(x)-y_0|\leq\int_{x_0}^x|f(t,\phi_n(t))|\text{d}t\leq M(x-x_0)\leq M\alpha\leq b
+$$
+(ii)作如下定义：
+$$
+\phi_n(x)=\phi_0(x)+\sum_{k=1}^n(\phi_k(x)-\phi_{k-1}(x))\triangleq\phi_0(x)+\sum_{k=1}^n\Delta_k(x)
+$$
+因此有
+$$
+\Delta_{k+1}(x)=\phi_{k+1}(x)-\phi_k(x)=\int_{x_0}^x[f(t,\phi_k(t))-f(t,\phi_{k-1}(t))]\text{d}t
+$$
+所以可以得到
+$$
+|\Delta_1(x)|=\left|\int_{x_0}^xf(t,y_0)\text{d}t\right|\leq M|x-x_0|
+$$
+并且
+$$
+|\Delta_{k+1}(x)|\leq\int_{x_0}^xL|\Delta_k(t)|\text{d}t
+$$
+因此由数学归纳法可以得到
+$$
+|\Delta_k(x)|\leq\dfrac{L^{k-1}M(x-x_0)^k}{k!}=\dfrac{M}{L}\dfrac{[L(x-x_0)]^k}{k!}
+$$
+故
+$$
+\lim_{n\to\infty}\sum_{k=1}^n|\Delta_k(x)|\leq\dfrac{M}{L}\sum_{k=1}^{\infty}\dfrac{[L(x-x_0)^k]}{k!}=\dfrac{M}{L}[e^{L|x-x_0|}-1]
+$$
+因此<span class="arithmatex">\(\{\phi_n(x)\}\)</span>是收敛的，在其定义式两边同时取极限可以得到积分方程。存在性得证。
+(iii)假设存在<span class="arithmatex">\(\varphi(x),\psi(x)\)</span>都是初值问题的解。则
+$$
+|\delta(x)|=|\varphi(x)-\psi(x)|=\left|\int_{x_0}^x[f(t,\varphi(t))-f(t,\psi(t))]\text{d}t\right|\leq\int_{x_0}^xL|\delta(t)|\text{d}t
+$$
+注意到
+$$
+|\delta(x)|=|\varphi(x)-\psi(x)|\leq|\varphi(x)-y_0|+|\psi(x)-y_0|\leq 2M|x-x_0|
+$$
+因此由数学归纳法可以得到
+$$
+|\delta(x)|\leq2ML\lim_{n\to\infty}\dfrac{[L|x-x_0|]^n}{n!}=0
+$$
+因此<span class="arithmatex">\(\delta(x)\equiv 0\)</span>。唯一性得证。</p>
+<blockquote>
+<p>也可以用压缩映射定理证明：
+压缩映射的定义：设<span class="arithmatex">\(T\)</span>是一个从函数到函数的映射，如果
+$$
+\sup_{x\in I}|Tf(x)-Tg(x)|\leq\lambda\sup_{x\in I}|f(x)-g(x)|,\quad\lambda&lt;1
+$$
+则称映射<span class="arithmatex">\(T\)</span>是一个<strong>压缩映射</strong>。
+<strong>压缩映射定理</strong>：如果<span class="arithmatex">\(T\)</span>是一个压缩映射，则<span class="arithmatex">\(\exists ! f\)</span>使得<span class="arithmatex">\(T(f)=f\)</span>。
+<strong>用压缩映射定理证明Picard存在唯一性定理</strong> 
+设映射<span class="arithmatex">\(T\)</span>为
+$$
+Tf(x)=y_0+\int_{x_0}^xK(s,f(s))\text{d}s
+$$
+其中<span class="arithmatex">\(K(x,y)\)</span>满足 
+$$
+\dfrac{\text{d}y}{\text{d}x}=K(x,y)
+$$
+则
+$$
+\begin{aligned}
+\sup_{x\in I}|Tf(x)-Tg(x)|&amp;\leq\sup_{x\in I}|\int_{x_0}^x[K(s,f(s))-K(s,g(s))]\text{d}s|\
+&amp;\leq \sup_{x\in I}\int_{x_0}^xL|f(s)-g(s)|\text{d}s\
+&amp;\leq L\sup_{x\in I}|x-x_0|\sup_{x\in I}|f(x)-g(x)|
+\end{aligned}
+$$
+因此<span class="arithmatex">\(T\)</span>是一个压缩映射，故只存在唯一的<span class="arithmatex">\(f(x)\)</span>满足
+$$
+Tf(x)=f(x)
+$$
+即ODE初值问题的积分方程。
+<strong>Gronwall不等式：</strong> 设<span class="arithmatex">\(\alpha(x)\)</span>和<span class="arithmatex">\(u(x)\)</span>是区间<span class="arithmatex">\([x_0,x_1]\)</span>上的实值非负连续函数。若对于<span class="arithmatex">\(x\in [x_0,x_1]\)</span>，有：
+$$
+u(x)\leq C+\int_{x_0}^x[\alpha(s)u(s)+K]\text{d}s
+$$
+其中的<span class="arithmatex">\(C\)</span>和<span class="arithmatex">\(K\)</span>是非负常数，则当<span class="arithmatex">\(x\in [x_0,x_1]\)</span>时，有
+$$
+u(x)\leq [C+K(x-x_0)]e^{\int_{x_0}^x\alpha(s)\text{d}s}
+$$
+<em>Proof.</em> 令<span class="arithmatex">\(w(x)=C+\int_{x_0}^x[\alpha(s)u(s)+K]\text{d}s\)</span>，则有：
+$$
+w'(x)=\alpha(x)u(x)+K\leq\alpha(x)w(x)+K
+$$
+因此
+$$
+[w(x)e^{-\int_{x_0}^x\alpha(s)\text{d}s}]'\leq Ke^{-\int_{x_0}^x\alpha(s)\text{d}s}
+$$
+两边积分得
+$$
+w(x)e^{-\int_{x_0}^x\alpha(s)\text{d}s}-w(x_0)\leq\int_{x_0}^xKe^{-\int_{x_0}^s\alpha(t)\text{d}t}\text{d}s
+$$
+由于<span class="arithmatex">\(w(x_0)=C\)</span>，故有
+$$
+w(x)e^{-\int_{x_0}^x\alpha(s)\text{d}s}\leq C+\int_{x_0}^xK\text{d}s=C+K(x-x_0)
+$$
+故
+$$
+u(x)\leq w(x)\leq[C+K(x-x_0)]e^{\int_{x_0}^x\alpha(s)\text{d}s}
+$$</p>
+</blockquote>
+<h3 id="_17">解的延拓与整体解</h3>
+<h4 id="_18">解的延拓</h4>
+<p><strong>拼接引理：</strong> 若<span class="arithmatex">\(\varphi(x),\psi(x)\)</span>是ODE的解。<span class="arithmatex">\(\varphi(x)\)</span>在<span class="arithmatex">\(x\in [a,b]\)</span>成立，<span class="arithmatex">\(\psi(x)\)</span>在<span class="arithmatex">\(x\in [b,c]\)</span>成立，且<span class="arithmatex">\(\varphi(b)=\psi(b)\)</span>，则函数
+$$
+y(x)=\begin{cases}
+\varphi(x),\quad x\in [a,b]\
+\psi(x),\quad x\in [b,c]
+\end{cases}
+$$
+是方程在<span class="arithmatex">\([a,c]\)</span>上的一个解。
+<strong>延拓引理：</strong> 若函数<span class="arithmatex">\(f(x,y)\in C(G)\)</span>，<span class="arithmatex">\(\varphi(x)\)</span>是方程<span class="arithmatex">\(y'=f(x,y)\)</span>在区间<span class="arithmatex">\([x_0,b)\)</span>上的一个解，且集合<span class="arithmatex">\(\{(x,\varphi(x))\mid x\in[x_0,b)\}\subset A\subset G\)</span>，其中<span class="arithmatex">\(A\)</span>是有界闭集，则<span class="arithmatex">\(y=\varphi(x)\)</span>可以延拓到闭区间<span class="arithmatex">\([x_0,b]\)</span>。
+<strong>延拓定理：</strong> 设<span class="arithmatex">\(f(x,y)\in C(G)\)</span>，<span class="arithmatex">\((x_0,y_0)\in G\)</span>，设<span class="arithmatex">\(\Gamma\)</span>是ODE：<span class="arithmatex">\(y'=f(x,y)\)</span>经过<span class="arithmatex">\((x_0,y_0)\)</span>的一条积分曲线，则积分曲线在<span class="arithmatex">\(G\)</span>内延伸到<span class="arithmatex">\(\partial G\)</span>。</p>
+<blockquote>
+<p>设<span class="arithmatex">\(y=\varphi(x)\)</span>的最大右行存在区间是<span class="arithmatex">\([x_0,b)\)</span>，这里包含以下三种情况：
+*  <span class="arithmatex">\(b=+\infty\)</span>，右行整体解存在；
+* <span class="arithmatex">\(b&lt;+\infty\)</span>，且<span class="arithmatex">\(\lim_{x\to b^-}|\varphi(x)|=+\infty\)</span>，即存在爆破解；
+* <span class="arithmatex">\(b&lt;+\infty\)</span>，且<span class="arithmatex">\(\lim_{x\to b^-}\operatorname{dist}(\partial G,(x,\varphi(x)))=0\)</span>。即在<span class="arithmatex">\(b^-\)</span>附近积分曲线与<span class="arithmatex">\(\partial G\)</span>渐进。</p>
+</blockquote>
+<h4 id="_19">解的整体存在性</h4>
+<p><strong>定义（饱和解）：</strong> 设函数<span class="arithmatex">\(\phi(x)\)</span>是ODE定义在区间<span class="arithmatex">\(I\)</span>上的一个解，<span class="arithmatex">\(\psi(x)\)</span>是它定义在<span class="arithmatex">\((a_1,b_1)\)</span>上的另一个解，其中<span class="arithmatex">\(I\subset (a_1,b_1)\)</span>。如果对于<span class="arithmatex">\(x\in I\)</span>满足<span class="arithmatex">\(\psi(x)\equiv \phi(x)\)</span>，则称解<span class="arithmatex">\(\phi(x)\)</span>是<strong>可延拓</strong>的，并称<span class="arithmatex">\(\psi(x)\)</span>是<span class="arithmatex">\(\phi(x)\)</span>在区间<span class="arithmatex">\((a_1,b_1)\)</span>上的一个<strong>延拓</strong>。相反，如果不存在满足上述条件的解<span class="arithmatex">\(\psi(x)\)</span>，则称解<span class="arithmatex">\(\phi(x)\)</span>是ODE的一个<strong>饱和解</strong>。
+<strong>定理：</strong> 假设函数<span class="arithmatex">\(f(x,y)\)</span>在连通区域<span class="arithmatex">\(G\subset \mathbb{R}^2\)</span>内连续且关于<span class="arithmatex">\(y\)</span>满足Lipschitz条件，则ODE过<span class="arithmatex">\(G\)</span>内每一点存在唯一的饱和解。
+<strong>定理：</strong> 设<span class="arithmatex">\(f(x,y)\)</span>是<span class="arithmatex">\(R=\{(x,y)\mid a&lt;x&lt;b,|y|&lt;+\infty\}\)</span>上的连续函数，且在<span class="arithmatex">\(R\)</span>上关于<span class="arithmatex">\(y\)</span>满足一致Lipschitz条件，即存在常数<span class="arithmatex">\(L\)</span>，使得对任意<span class="arithmatex">\((x,y_1)\in R\)</span>和<span class="arithmatex">\((x,y_2)\in R\)</span>满足
+$$
+|f(x,y_1)-f(x,y_2)|\leq L|y_1-y_2|
+$$
+则<span class="arithmatex">\(y'=f(x,y)\)</span>的每一个饱和解的存在区间都是<span class="arithmatex">\((a,b)\)</span>。</p>
+<h3 id="_20">比较定理与解的存在性估计</h3>
+<p><strong>定理</strong> 设函数<span class="arithmatex">\(f(x,y)\)</span>是区域<span class="arithmatex">\(G=\{(x,y): a&lt;x&lt;b,-\infty&lt;y&lt;+\infty\}\)</span>内的连续函数。<span class="arithmatex">\((x_0,y_0)\in G\)</span>。设ODE初值问题解的右行最大存在区间为<span class="arithmatex">\([x_0,\beta_1)\)</span>。则有：</p>
+<blockquote>
+<p>(1) 初值问题有右行上解<span class="arithmatex">\(\Phi(x)\)</span>和右行下解<span class="arithmatex">\(\varphi(x)\)</span>，且它们都在区间<span class="arithmatex">\([x_0,\beta)\)</span>上有定义，则<span class="arithmatex">\(\beta_1&gt;\beta\)</span>。
+(2) 若初值问题有右行上解<span class="arithmatex">\(\Phi(x)\)</span>，它的最大右行区间为<span class="arithmatex">\([x_0,\beta)\)</span>。且当<span class="arithmatex">\(x\to\beta^-\)</span>时，<span class="arithmatex">\(\Phi(x)\to-\infty\)</span>，则<span class="arithmatex">\(\beta_1\leq \beta\)</span>。
+(3) 若初值问题有右行下解<span class="arithmatex">\(\varphi(x)\)</span>，它的最大右行区间为<span class="arithmatex">\([x_0,\beta)\)</span>。且当<span class="arithmatex">\(x\to\beta^-\)</span>时，<span class="arithmatex">\(\varphi(x)\to+\infty\)</span>，则<span class="arithmatex">\(\beta_1\leq \beta\)</span>。
+<em>Proof.</em>   (1) 取<span class="arithmatex">\(G=\{(x,y): x_0-\varepsilon&lt;\beta-\varepsilon,\varphi(x)-2&lt;y&lt;\Phi(x)+2\}\)</span>，根据延拓定理，<span class="arithmatex">\(y(x)\)</span>可延拓到<span class="arithmatex">\(\partial G\)</span>。由于<span class="arithmatex">\(\varphi(x)\)</span>达不到上下边界，因此只能达到右边界，即<span class="arithmatex">\(\beta_1&gt;\beta-\varepsilon\)</span>，根据<span class="arithmatex">\(\varepsilon\)</span>的任意性，可以得到<span class="arithmatex">\(\beta_1&gt;\beta\)</span>。
+(2) 反证法。假设<span class="arithmatex">\(\beta_1&gt;\beta\)</span>，<span class="arithmatex">\(y(x)\)</span>在<span class="arithmatex">\([x_0,\beta]\)</span>上有定义，故有界。因此
+$$
+y(\beta)=\lim_{x\to\beta^-}y(x)\leq\lim_{x\to\beta^-}\Phi(x)=-\infty
+$$
+矛盾。
+(3) 与(2)同理。
+<strong>定理</strong> 若<span class="arithmatex">\(G=(a,b)\times(-\infty,+\infty)\)</span>，函数<span class="arithmatex">\(f(x,y)\in C(G)\)</span>，假设<span class="arithmatex">\(\exists\)</span>常数<span class="arithmatex">\(M,N&gt;0\)</span>使得
+$$
+f(x,y)\leq M|y|+N,\quad\forall(x,y)\in G
+$$
+<em>Proof</em>. 用上面的定理是显然的。这种方程也称为<strong>拟线性方程</strong>。
+<strong>例:</strong>  考虑初值问题
+$$
+\begin{cases}y'=x^3-y^3\
+y(0)=c
+\end{cases}
+$$
+(1) <span class="arithmatex">\(\forall c\in\mathbb{R}\)</span>，证明右行解总存在于<span class="arithmatex">\([0,+\infty)\)</span>;
+(2) <span class="arithmatex">\(\forall c&gt;0\)</span>，证明左行解的存在区间有限。
+<em>Proof.</em> (1) 记<span class="arithmatex">\(f(x,y)=x^3-y^3\)</span>，由于
+$$
+f(x,y)=(x-y)(x^2+xy+y^2)
+$$
+取
+$$
+\Phi(x)=x+|c|,\quad \varphi(x)=-x-|c|
+$$
+则在区间<span class="arithmatex">\([0,+\infty)\)</span>上有
+$$
+\dfrac{\text{d}\Phi(x)}{\text{d}x}=1&gt;f(x,\Phi(x)),\quad \Phi(0)\geq |c|
+$$
+以及
+$$
+\dfrac{\text{d}\varphi(x)}{\text{d}x}=-1&lt;f(x,\varphi(x)),\quad \varphi(0)\leq |c|
+$$
+因此二者分别是初值问题的右行上解和右行下解，它们存在公共区间<span class="arithmatex">\([0,+\infty)\)</span>，因此初值问题的解在<span class="arithmatex">\([0,+\infty)\)</span>上存在。
+(2) 做时间反演变换，令<span class="arithmatex">\(t=-x\)</span>，则有
+$$
+\begin{cases}
+y'=t^3+y^3\
+y(0)=c
+\end{cases}
+$$
+只需证明该ODE初值问题的右行解存在区间有限。记<span class="arithmatex">\(g(t,y)=t^3+y^3\)</span>，构造函数
+$$
+\phi(t)=\dfrac{c}{\sqrt{1-2c^2t}}
+$$
+它是ODE初值问题<span class="arithmatex">\(y'=y^3,y(0)=c\)</span>的解，因此<span class="arithmatex">\(\phi(t)\)</span>是原ODE的一个右行下解。
+而<span class="arithmatex">\(\phi(t)\)</span>的右行存在区间为<span class="arithmatex">\([0,\dfrac{1}{2c^2}]\)</span>是有限的，因此该ODE初值问题的右行解存在区间有限。</p>
+</blockquote>
+<h3 id="_21">解的连续依赖性</h3>
+<p>考虑初值问题的解<span class="arithmatex">\(y(x;x_0,y_0)\)</span>：
+* 当<span class="arithmatex">\(x_0,y_0\)</span>变化很小时，<span class="arithmatex">\(y(x;x_0,y_0)\)</span>是否变化很小;
+* 当<span class="arithmatex">\(f\)</span>变化很小时，<span class="arithmatex">\(y(x;x_0,y_0)\)</span>是否变化很小。
+<strong>定理：</strong> <span class="arithmatex">\(F,f\in C(G)\)</span>，且在<span class="arithmatex">\(G\)</span>中满足<span class="arithmatex">\(\forall\varepsilon&gt;0\)</span>，
+$$
+|F(x,y)-f(x,y)|&lt;\varepsilon
+$$
+<span class="arithmatex">\(f\)</span>关于<span class="arithmatex">\(y\)</span>满足Lipschitz条件，对于<span class="arithmatex">\((x_0,y_0)\in G\)</span>，函数<span class="arithmatex">\(y(x)\)</span>和<span class="arithmatex">\(\varphi(x)\)</span>分别是ODE
+$$
+\begin{cases}
+y'=f(x,y)\
+y(x_0)=y_0
+\end{cases}
+$$
+和
+$$
+\begin{cases}
+\varphi'=f(x,\varphi)\
+\varphi(x_0)=y_0
+\end{cases}
+$$
+的解，则在它们的公共存在区间<span class="arithmatex">\([x_0-\alpha,x_0+\alpha]\)</span>上，有
+$$
+|y(x)-\varphi(x)|\leq\dfrac{\varepsilon}{L}(e^{L\alpha}-1)
+$$
+<em>Proof.</em> <span class="arithmatex">\(\forall x\in[x_0,x_0+\alpha]\)</span>，有
+$$
+y(x)=y_0+\int_{x_0}^xf(t,y(t))\text{d}t\
+\varphi(x)=y_0+\int_{x_0}^xF(t,\varphi(t))\text{d}t
+$$
+则
+$$
+\begin{aligned}y(x)-\varphi(x)&amp;=\int_{x_0}^x\left[f(t,y(t))-F(t,\varphi(t))\right)]\text{d}t\
+&amp;=\int_{x_0}^x[f(t,y(t))-f(t,\varphi(t))]\text{d}t\&amp; +\int_{x_0}^x[f(t,\varphi(t))-F(t,\varphi(t))]\text{d}t
+\end{aligned}
+$$
+因此可以得到
+$$
+\begin{aligned}
+|y(x)-\varphi(x)|&amp;\leq\int_{x_0}^xL|y(t)-\varphi(t)|\text{d}t+\int_{x_0}^x\varepsilon\text{d}t\
+&amp;=L\int_{x_0}^x\left(\dfrac{\varepsilon}{L}+|y(t)-\varphi(t)|\right)\text{d}t
+\end{aligned}
+$$
+等式两边加<span class="arithmatex">\(\dfrac{\varepsilon}{L}\)</span>并应用Gronwall不等式可以得到
+$$
+\dfrac{\varepsilon}{L}+|y(x)-\varphi(x)|\leq\dfrac{\varepsilon}{L}e^{L(x-x_0)}\leq\dfrac{\varepsilon}{L}e^{L\alpha}
+$$
+<strong>定理（解对初值连续依赖性）：</strong> <span class="arithmatex">\(f\in C(G)\cap \operatorname{Lip}_y\)</span> ，<span class="arithmatex">\((x_0,y_0)\in G\)</span>。若<span class="arithmatex">\(y=\varphi(x;x_0,y_0), x\in J\)</span>是ODE初值问题过<span class="arithmatex">\((x_0,y_0)\)</span>的唯一饱和解，对于闭子区间<span class="arithmatex">\([a,b]\subset J\)</span>。则当<span class="arithmatex">\((\xi,\eta)\)</span>充分接近<span class="arithmatex">\((x_0,y_0)\)</span>时，方程以<span class="arithmatex">\(y(\xi)=\eta\)</span>为初值条件的唯一饱和解<span class="arithmatex">\(y=\varphi(x;\xi,\eta)\)</span>在<span class="arithmatex">\([a,b]\)</span>上有定义，并且
+$$
+\lim_{(\xi,\eta)\to(x_0,y_0)}\max_{x\in[a,b]}|\varphi(x;\xi,\eta)-\varphi(x;x_0,y_0)|=0
+$$
+<em>Proof.</em> 令<span class="arithmatex">\(S=\{(x,\varphi(x;x_0,y_0))\mid a\leq x\leq b\}\)</span>。<span class="arithmatex">\(\forall x\in S\)</span>，记
+$$
+O_{x_i}={(x,y)\mid|x-x_i|&lt;2\varepsilon(x_i),|y-\varphi(x;x_0,y_0)|&lt;2\varepsilon(x_i)},\quad i\in I
+$$
+且<span class="arithmatex">\(f\)</span>在<span class="arithmatex">\(O_{x_i}\)</span>上的Lipschitz常数为<span class="arithmatex">\(L_i\)</span>，则<span class="arithmatex">\(S\subset\bigcup_{i\in I}O_{x_i}\)</span>存在有限个子覆盖，记为
+$$
+S\subset\bigcup_{j=1}^NO_{x_j}
+$$
+特别地，我们有
+$$
+[a,b]\subset\bigcup_{j=1}^N{x\mid|x-x_j|&lt;2\varepsilon_j(x_j)}
+$$
+取<span class="arithmatex">\(\varepsilon_0=\min_{1\leq j\leq N}\{\varepsilon_j(x_j)\},L_0=\max_{1\leq j\leq N}\{L_j\}\)</span>，令
+$$
+O_S={(x,y)\mid a\leq x\leq b,\quad |y-\varphi(x;x_0,y_0)|&lt;\varepsilon_0}
+$$
+则有
+$$
+S\subset O_S\subset \bigcup_{j=1}^NO_{x_j}
+$$
+且<span class="arithmatex">\(f\)</span>在<span class="arithmatex">\(O_S\)</span>上一致Lipschitz连续，Lipschitz常数为<span class="arithmatex">\(L_0\)</span>，那么
+$$
+\begin{aligned}
+&amp;|\varphi(x;x_0,y_0)-\varphi(x;\xi,\eta)|\\leq&amp;|y_0-\eta|+\left|\int_{x_0}^xf(t,\varphi(t;x_0,y_0)\text{d}t-\int_\xi^xf(t,\varphi(t;\xi,\eta)\text{d}t\right|\
+\leq &amp;|y_0-\eta|+M|x_0-\xi|+\int_{x_0}^xL_0|\varphi(t;x_0,y_0)-\varphi(t;\xi,\eta)|\text{d}t\
+\leq &amp;(M|x_0-\xi|+|y_0-\eta|)e^{L_0|x-x_0|}
+\end{aligned}
+$$
+取<span class="arithmatex">\(\delta=\dfrac{\varepsilon_0}{M+1}e^{-L(b-a)}\)</span>，则当<span class="arithmatex">\(|\xi-x_0|,|y-y_0|&lt;\delta\)</span>时，有
+$$
+|\varphi(x;x_0,y_0)-\varphi(x;\xi,\eta)|&lt;\varepsilon_0
+$$
+证毕。
+<strong>定理（解对初值的可微性）：</strong> <span class="arithmatex">\(f,f_y\in C(G)\)</span>，则对于<span class="arithmatex">\((x_0,y_0)\in G\)</span>，方程满足初值条件<span class="arithmatex">\(y(x_0)=y_0\)</span>的解<span class="arithmatex">\(y=\varphi(x;x_0,y_0)\)</span>作为<span class="arithmatex">\((x,x_0,y_0)\)</span>的函数，在它的存在区间内是连续可微的。
+<strong>Q:</strong> 如何计算<span class="arithmatex">\(w(x)=\dfrac{\partial\varphi(x;x_0,y_0)}{\partial x_0}, z(x)=\dfrac{\partial\varphi(x;x_0,y_0)}{\partial y_0}\)</span>？
+已知
+$$
+\varphi(x;x_0,y_0)=y_0+\int_{x_0}^xf(t,\varphi(t;x_0,y_0))\text{d}t
+$$
+两边对<span class="arithmatex">\(y_0\)</span>求偏导：
+$$
+\dfrac{\partial\varphi(x;x_0,y_0)}{\partial y_0}=1+\int_{x_0}^xf_y(t,\varphi(t;x_0,y_0))\dfrac{\partial\varphi(t;x_0,y_0)}{\partial y_0}\text{d}t
+$$
+相当于ODE初值问题：
+$$
+\begin{cases}
+z'(x)=f_y(x,\varphi(x;x_0,y_0))z(x)\
+z(x_0)=1
+\end{cases}
+$$
+两边对<span class="arithmatex">\(x_0\)</span>求偏导：
+$$
+\dfrac{\partial\varphi(x;x_0,y_0)}{\partial x_0}=0+\int_{x_0}^xf_y(t,\varphi(t;x_0,y_0))\dfrac{\partial\varphi(t;x_0,y_0)}{\partial x_0}\text{d}t-f(x_0,y_0)
+$$
+相当于ODE初值问题：
+$$
+\begin{cases}
+w'(x)=f_y(x,\varphi(x;x_0,y_0))w(x)\
+w(x_0)=-f(x_0,y_0)
+\end{cases}
+$$
+<strong>Q:</strong> 如何计算<span class="arithmatex">\(v(x)=\dfrac{\partial\varphi(x,x_0,y_0,\lambda)}{\partial \lambda}\)</span>?
+不求了，是个非齐次方程：
+$$
+\begin{cases}
+v'(x)=f_y(x,\varphi(x,x_0,y_0,\lambda),\lambda)v(x)+f_\lambda(x,\varphi(x,x_0,y_0,\lambda),\lambda)\
+v(x_0)=0
+\end{cases}
+$$</p>
+<h3 id="_22">二阶微分方程的求解</h3>
+<p>考虑<span class="arithmatex">\(y''=f(x,y,y')\)</span>。
+(i) <span class="arithmatex">\(y''=f(x)\)</span>：直接积分两次。
+(ii) <span class="arithmatex">\(y''=f(x,y')\)</span>：令<span class="arithmatex">\(z=y'\)</span>，则变成<span class="arithmatex">\(z'=f(x,z)\)</span>。
+(iii) <span class="arithmatex">\(y''=f(y,y')\)</span>：令<span class="arithmatex">\(z=y'\)</span>，则化为<span class="arithmatex">\(z\dfrac{\text{d}z}{\text{d}y}=f(y,z)\)</span>。</p>
+<h2 id="_23">线性微分方程（组）</h2>
+<h3 id="_24">线性微分方程组解的结构</h3>
+<h4 id="_25">线性微分方程组</h4>
+<p>记<span class="arithmatex">\(\mathbf{x}(t)=[x_1(t),x_2(t),\cdots,x_n(t)]^{\mathrm{T}}\)</span>是定义在区间<span class="arithmatex">\(I\)</span>上的<span class="arithmatex">\(n\)</span>维未知向量函数，记
+$$
+\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=[\dfrac{\text{d}x_1(t)}{\text{d}t},\dfrac{\text{d}x_2(t)}{\text{d}t},\cdots,\dfrac{\text{d}x_n(t)}{\text{d}t}]^{\mathrm{T}}
+$$
+记
+$$
+\mathbf{A}(t)=(a_{ij}(t))_{n\times n},\quad \mathbf{b}(t)=[f_1(t),f_2(t),\cdots,f_n(t)]^{\mathrm{T}}
+$$
+分别是定义在区间<span class="arithmatex">\(I\)</span>上的<span class="arithmatex">\(n\times n\)</span>矩阵函数和<span class="arithmatex">\(n\)</span>维向量函数。它们的分量关于<span class="arithmatex">\(t\)</span>是区间<span class="arithmatex">\(I\)</span>上的连续函数。则线性微分方程组可以表示为
+$$
+\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=\mathbf{A}(t)\mathbf{x}(t)+\mathbf{b}(t)
+$$
+对于一般的ODE，有
+$$
+\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=\mathbf{f}(t,\mathbf{x}(t))
+$$
+则可以同样地定义Lipschitz条件，Peano定理、Picard定理和延拓定理、对初值连续依赖性、可微性同样成立。</p>
+<h4 id="_26">高阶微分方程</h4>
+<p>考虑<span class="arithmatex">\(n\)</span>阶微分方程
+$$
+\dfrac{\text{d}^nx}{\text{d}t}=f(t,x,x',\cdots,x^{(n-1)})
+$$
+通过变换<span class="arithmatex">\(x_1=x,x_2=x',\cdots,x_n=x^{(n-1)}\)</span>，则可化为
+$$
+\begin{cases}
+\dfrac{\text{d}x_1}{\text{d}t}=x_2,\
+\dfrac{\text{d}x_2}{\text{d}t}=x_3,\
+\cdots\
+\dfrac{\text{d}x_{n-1}}{\text{d}t}=x_n,\
+\dfrac{\text{d}x_n}{\text{d}t}=f(t,x_1,x_2,\cdots,x_n)
+\end{cases}
+$$</p>
+<h4 id="_27">齐次线性微分方程组</h4>
+<p>考虑线性微分方程组初值问题
+$$
+\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=\mathbf{A}(t)\mathbf{x}(t)+\mathbf{b}(t),\quad \mathbf{x}(t_0)=\mathbf{x}<em t_0="t_0">0
+$$
+根据存在唯一性定理，这个方程在区间<span class="arithmatex">\(I=[a,b]\)</span>上有唯一解。
+<strong>定义：</strong> 如果存在一组不全为0的常数<span class="arithmatex">\(c_1,c_2,\cdots,c_n\)</span>，使得在<span class="arithmatex">\(I\)</span>上
+$$
+c_1\mathbf{x}_1(t)+c_2\mathbf{x}_2(t)+\cdots+c_n\mathbf{x}_n(t)=\mathbf{0}
+$$
+则称向量函数<span class="arithmatex">\(\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)\)</span>在区间<span class="arithmatex">\(I\)</span>上是<strong>线性相关</strong>的；否则称是<strong>线性无关</strong>的。设<span class="arithmatex">\(\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)\)</span>是<span class="arithmatex">\(n\)</span>个给定的<span class="arithmatex">\(n\)</span>维向量函数，则称行列式
+$$
+W(t)=\operatorname{det}([\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)])
+$$
+是向量函数<span class="arithmatex">\(\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)\)</span>的Wronsky行列式。
+<strong>引理：</strong> 如果<span class="arithmatex">\(\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)\)</span>的Wronsky行列式<span class="arithmatex">\(W(t)=0\)</span>，则<span class="arithmatex">\(\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)\)</span>线性相关。如果齐次LODEs的解<span class="arithmatex">\(\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)\)</span>线性无关，则<span class="arithmatex">\(W(t)\neq 0,\ a\leq x\leq b\)</span>。
+<strong>引理：</strong> 设<span class="arithmatex">\(\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)\)</span>是<span class="arithmatex">\(n\)</span>阶齐次线性微分方程组的<span class="arithmatex">\(n\)</span>个解，则它们的Wronsky行列式满足Liouville公式
+$$
+W(t)=W(t_0)e^{\int</em>
+$$
+}^t\operatorname{tr}\mathbf{A}(s)\text{d}s<em>Proof.</em> 写成分量的形式，对于第<span class="arithmatex">\(j\)</span>个解的第<span class="arithmatex">\(i\)</span>个分量，有
+$$
+\dfrac{\text{d}x_{ij}(t)}{\text{d}t}=\sum_{k=1}^na_{ik}(t)x_{kj}(t),\quad 1\leq i,j\leq n
+$$
+固定<span class="arithmatex">\(i\)</span>，则有
+$$
+\dfrac{\text{d}\mathbf{r}<em k="1">i}{\text{d}t}=\sum</em>}^na_{ik}\mathbf{r<em 11="11">k
+$$
+其中<span class="arithmatex">\(\mathbf{r}_i\)</span>表示矩阵<span class="arithmatex">\(\mathbf{X}=[\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)]\)</span>的第<span class="arithmatex">\(i\)</span>行。
+对<span class="arithmatex">\(W(t)\)</span>求导
+$$
+\begin{aligned}
+W'(t)&amp;=\begin{vmatrix}
+x</em>(t)\
+x_{21}(t) &amp; x_{22}(t) &amp; \cdots &amp; x_{2n}(t)\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\
+x_{n1}(t) &amp; x_{n2}(t) &amp; \cdots &amp; x_{nn}(t)
+\end{vmatrix}\&amp;=\sum_{i=1}^n\begin{vmatrix}
+\mathbf{r}}(t) &amp; x_{12}(t) &amp; \cdots &amp; x_{1n<em i1="i1">1\
+\vdots\
+a</em>}\mathbf{r<em i2="i2">1+a</em>}\mathbf{r<em in="in">2+\cdots + a</em>}\mathbf{r<em i="1">n\
+\vdots\
+\mathbf{r}_n
+\end{vmatrix}\
+&amp;=\sum</em>(t))W(t)
+\end{aligned}
+$$
+解此方程，证毕。
+}^na_{ii}W(t)=\operatorname{tr}(\mathbf{A<strong>定理：</strong> <span class="arithmatex">\(n\)</span>维线性齐次微分方程组的所有解构成一个<span class="arithmatex">\(n\)</span>维线性空间。
+<strong>定义：</strong> <span class="arithmatex">\(n\)</span>阶线性齐次方程组的任意<span class="arithmatex">\(n\)</span>个线性无关解
+$$
+\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)
+$$
+称为这个方程组的<strong>基本解组</strong>，矩阵
+$$
+\mathbf{\Phi}(t)=[\mathbf{x}_1(t),\mathbf{x}_2(t),\cdots,\mathbf{x}_n(t)]
+$$
+称为方程组的<strong>基解矩阵</strong>。称满足<span class="arithmatex">\(\mathbf{\Phi}(t_0)=\mathbf{I}\)</span>的基解矩阵为<strong>预解式</strong>。
+在此基础上，<span class="arithmatex">\(n\)</span>阶线性齐次微分方程组的通解可表示为
+$$
+\mathbf{x}(t)=\mathbf{\Phi}(t)\mathbf{c}
+$$
+因此当初值问题的解为
+$$
+\mathbf{x}(t)=\mathbf{\Phi}(t)\mathbf{\Phi}^{-1}(t_0)\mathbf{x}_0
+$$</p>
+<h4 id="_28">非齐次线性微分方程组</h4>
+<p>考虑<span class="arithmatex">\(n\)</span>阶非齐次线性微分方程组
+$$
+\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=\mathbf{A}(t)\mathbf{x}+\mathbf{b}(t)
+$$
+它的通解可由齐次通解和非齐次特解的和表示。用常数变易法，可以得到
+$$
+\mathbf{x}(t)=\mathbf{\Phi}(t)\mathbf{c}+\mathbf{\Phi}(t)\int_{t_0}^t\mathbf{\Phi}^{-1}(s)\mathbf{b}(s)\text{d}s
+$$
+对于满足初值条件<span class="arithmatex">\(\mathbf{x}(t_0)=\mathbf{x}_0\)</span>的解，可以写成
+$$
+\mathbf{x}(t)=\mathbf{\Phi}(t)\mathbf{\Phi}^{-1}(t_0)\mathbf{x}<em t_0="t_0">0+\mathbf{\Phi}(t)\int</em>s
+$$}^t\mathbf{\Phi}^{-1}(s)\mathbf{b}(s)\text{d</p>
+<h3 id="_29">高阶线性微分方程解的结构</h3>
+<p>标准形式的<span class="arithmatex">\(n\)</span>阶线性微分方程为
+$$
+\dfrac{\text{d}^nx}{\text{d}t^n}+p_1(t)\dfrac{\text{d}^{n-1}x}{\text{d}t^{n-1}}+\cdots+p_{n-1}(t)\dfrac{\text{d}x}{\text{d}t}+p_n(t)x=q(t)
+$$
+其中<span class="arithmatex">\(p_i(t)(i=1,2,\cdots,n),q(t)\)</span>是区间<span class="arithmatex">\(I=(a,b)\)</span>上的连续函数。
+用前述的方法，可以将其写成一个<span class="arithmatex">\(n\)</span>阶线性微分方程组
+$$
+\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=\mathbf{A}(t)\mathbf{x}+\mathbf{b}(t)
+$$
+其中<span class="arithmatex">\(\mathbf{x}(t)=[x(t),x'(t),\cdots,x^{(n-1)}(t)]^{\mathrm{T}}\)</span>，<span class="arithmatex">\(\mathbf{b}(t)=[0,0,\cdots,q(t)]^{\mathrm{T}}\)</span>，且
+$$
+\mathbf{A}(t)=\begin{bmatrix}
+0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 \
+0 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 &amp; 0 \
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 1 \
+-p_n(t) &amp; -p_{n-1}(t) &amp; -p_{n-2}(t) &amp; \cdots &amp; -p_2(t) &amp; -p_1(t)
+\end{bmatrix}
+$$
+前述的所有定理均可推广。</p>
+<h3 id="_30">线性微分方程组的求解</h3>
+<h4 id="_31">线性齐次微分方程组</h4>
+<p><strong>定理：</strong> 若<span class="arithmatex">\(n\times n\)</span>矩阵函数<span class="arithmatex">\(\mathbf{A}(t)\)</span>满足可交换条件
+$$
+\mathbf{A}(t)\cdot\int_{t_0}^t\mathbf{A}(s)\text{d}s=\int_{t_0}^t\mathbf{A}(s)\text{d}s\cdot\mathbf{A}(t)
+$$
+则线性齐次微分方程组初值问题
+$$
+\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=\mathbf{A}(t)\mathbf{x}(t),\quad \mathbf{x}(t_0)=\mathbf{x}<em t_0="t_0">0
+$$
+的解可表示为
+$$
+\mathbf{x}(t)=e^{\int</em>}^t\mathbf{A}(s)\text{d}s}\mathbf{x<em k="0">0
+$$
+<strong>定义（指数函数）：</strong> 一般地，若<span class="arithmatex">\(\mathbf{A}\)</span>是一个<span class="arithmatex">\(n\times n\)</span>矩阵，矩阵<span class="arithmatex">\(\mathbf{A}\)</span>的<strong>指数函数</strong><span class="arithmatex">\(e^{\mathbf{A}}\)</span>定义为
+$$
+e^{\mathbf{A}}=\sum</em>
+\dfrac{1}{k!}\mathbf{A}^k
+$$
+其中，定义}^{\infty<span class="arithmatex">\(\mathbf{A}^0\triangleq \mathbf{I}\)</span>。
+容易验证矩阵的指数函数满足下列性质：
+* 若<span class="arithmatex">\(\mathbf{A}=\mathbf{0}\)</span>是零矩阵，则<span class="arithmatex">\(e^{\mathbf{A}}=\mathbf{I}\)</span>；
+* 若<span class="arithmatex">\(\mathbf{P}\)</span>是一个<span class="arithmatex">\(n\times n\)</span>可逆矩阵，则<span class="arithmatex">\(e^{\mathbf{P}^{-1}\mathbf{A}\mathbf{P}}=\mathbf{P}^{-1}e^{\mathbf{A}}\mathbf{P}\)</span>;
+* 若<span class="arithmatex">\(\mathbf{A},\mathbf{B}\)</span>是两个<span class="arithmatex">\(n\times n\)</span>可交换矩阵，即<span class="arithmatex">\(\mathbf{AB}=\mathbf{BA}\)</span>，则
+$$
+e^{\mathbf{A}}\cdot e^{\mathbf{B}}=e^{\mathbf{B}}\cdot e^{\mathbf{A}}=e^{\mathbf{A}+\mathbf{B}}
+$$
+* 若矩阵
+$$
+\mathbf{A}=\operatorname{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)
+$$
+是一个<span class="arithmatex">\(n\)</span>阶对角矩阵，则
+$$
+e^{\mathbf{A}}=\operatorname{diag}(e^{\lambda_1t},e^{\lambda_2t},\cdots,e^{\lambda_nt})
+$$
+* 如果矩阵
+$$
+\mathbf{J}_k=\begin{bmatrix}\lambda_k &amp; 1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0\ 0 &amp; \lambda_k &amp; 1 &amp; \cdots &amp; 0 &amp; 0\ \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots\ 0 &amp; 0 &amp; 0 &amp; \cdots &amp; \lambda_k &amp; 1\ 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; \lambda_k\end{bmatrix}
+$$
+为<span class="arithmatex">\(k\)</span>阶Jordan矩阵，则
+$$
+e^{\mathbf{J}_kt}=e^{\lambda_kt}\begin{bmatrix}1 &amp; t &amp; \dfrac{t^2}{2!} &amp; \cdots &amp; \dfrac{t^{k-1}}{(k-1)!} \ 0 &amp; 1 &amp; t &amp; \cdots &amp; \dfrac{t^{k-2}}{(k-2)!}\ \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\ 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1\end{bmatrix}
+$$
+* 如果矩阵
+$$
+\mathbf{A}=\operatorname{diag}(\mathbf{J}_1,\mathbf{J}_2,\cdots,\mathbf{J}_k)
+$$
+是一个<span class="arithmatex">\(n\)</span>阶准对角矩阵，<span class="arithmatex">\(\mathbf{J}_i(i=1,2,\cdots,k)\)</span>为Jordan矩阵块，则
+$$
+e^{\mathbf{A}t}=\operatorname{diag}(e^{\mathbf{J}_1t},e^{\mathbf{J}_2t},\cdots,e^{\mathbf{J}_kt})
+$$</p>
+<h4 id="_32">常系数线性微分方程组</h4>
+<p>注意到，当<span class="arithmatex">\(\mathbf{A}\)</span>是一个常数矩阵时
+$$
+\mathbf{D}(t)=\int_{t_0}^t\mathbf{A}\text{d}s=\mathbf{A}(t-t_0)
+$$
+与<span class="arithmatex">\(\mathbf{A}\)</span>是可交换的。且基解矩阵
+$$
+\mathbf{\Phi}(t)=e^{\mathbf{D}(t)}=e^{\mathbf{A}(t-t_0)}
+$$
+因此只需要对<span class="arithmatex">\(\mathbf{A}\)</span>的特征值和特征向量进行讨论。
+<strong>定理：</strong> 如果<span class="arithmatex">\(n\)</span>阶常系数线性齐次微分方程组<span class="arithmatex">\(\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=\mathbf{A}\mathbf{x}(t)\)</span>的系数矩阵<span class="arithmatex">\(\mathbf{A}\)</span>有<span class="arithmatex">\(n\)</span>个互异的特征值<span class="arithmatex">\(\lambda_1,\cdots,\lambda_n\)</span>（或有<span class="arithmatex">\(n\)</span>个线性无关的特征向量），则向量函数
+$$
+\boldsymbol{\xi}<em k="0">1e^{\lambda_1t},\boldsymbol{\xi}_2e^{\lambda_2t},\cdots,\boldsymbol{\xi}_ne^{\lambda_nt}
+$$
+是方程组的一个基本解组，其中<span class="arithmatex">\(\boldsymbol{\xi}_i\)</span>是矩阵<span class="arithmatex">\(\mathbf{A}\)</span>的对应于特征值<span class="arithmatex">\(\lambda_i\)</span>的特征向量。
+<strong>定理：</strong> 假设<span class="arithmatex">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>分别是常数矩阵<span class="arithmatex">\(\mathbf{A}\)</span>的<span class="arithmatex">\(n_1,n_2,\cdots,n_k\)</span>重的互异特征值(<span class="arithmatex">\(\sum_{i=1}^kn_k=n\)</span>)，<span class="arithmatex">\(V_j(j=1,2,\cdots,k)\)</span>是由代数方程组
+$$
+(\mathbf{A}-\lambda_j\mathbf{I})^{n_j}\mathbf{u}=\mathbf{0},\quad j=1,2,\cdots,k
+$$
+的所有解组成的子空间。在不变子空间<span class="arithmatex">\(V_j\)</span>中取定<span class="arithmatex">\(n_j\)</span>个线性无关的特征向量<span class="arithmatex">\(\mathbf{v}_j^l\in V_j(l=1,2,\cdots,n_j)\)</span>，记
+$$
+\mathbf{x}_j^l(t)=e^{\lambda_j t}\sum</em>_j^l
+$$
+则
+$$
+\mathbf{x}_1^1(t),\cdots,\mathbf{x}_1^{n_1}(t);\cdots;\mathbf{x}_k^1(t),\cdots,\mathbf{x}_k^{n_k}(t)
+$$
+是常系数线性齐次微分方程组
+$$
+\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=\mathbf{A}\mathbf{x}(t)
+$$
+的一组基础解系。}^{n_j-1}\dfrac{t^k}{k!}(\mathbf{A}-\lambda_j\mathbf{I})^k\mathbf{v</p>
+<h3 id="_33">常系数线性微分方程的求解</h3>
+<h4 id="_34">常系数线性齐次微分方程</h4>
+<p><strong>定理：</strong> 设<span class="arithmatex">\(\lambda_i(i=1,2,\cdots,k)\)</span>是特征方程
+$$
+\lambda^n+a_1\lambda^{n-1}+a_2\lambda^{n-2}+\cdots+a_{n-1}\lambda+a_n=0
+$$
+的<span class="arithmatex">\(m_i\)</span>重特征值，则
+$$
+y_{ij}(t)=t^{j-1}e^{\lambda_it},\quad j=1,2,\cdots,m_i,\quad i=1,2,\cdots,k
+$$
+是常系数线性齐次微分方程
+$$
+y^{(n)}+a_1y^{(n-1)}+a_2y^{(n-2)}+\cdots+a_{n-1}y'+a_ny=0
+$$
+的<span class="arithmatex">\(n\)</span>个线性无关的解，即它们是方程的一个基本解组。</p>
+<h4 id="_35">线性非齐次微分方程的求解</h4>
+<p>仅以二阶线性微分方程为例。</p>
+<h5 id="_36">常数变易法</h5>
+<p>二阶线性微分方程的一般形式可写为
+$$
+L[y]=y''(t)+p(t)y'(t)+q(t)y(t)=f(t)
+$$
+其中<span class="arithmatex">\(p(t),q(t),f(t)\)</span>在区间<span class="arithmatex">\((a,b)\)</span>上是连续的。
+设<span class="arithmatex">\(y_1(t)\)</span>和<span class="arithmatex">\(y_2(t)\)</span>是对应的线性齐次微分方程的两个线性无关解，试图求得以下形式的特解
+$$
+y_p(t)=c_1(t)y_1(t)+c_2(t)y_2(t)
+$$
+计算<span class="arithmatex">\(y_p\)</span>的导数
+$$
+y_p'=[c_1(t)y_1'(t)+c_2(t)y_2'(t)]+[c_1'(t)y_1(t)+c_2'(t)y_2(t)]
+$$
+如果令
+$$
+c_1'(t)y_1(t)+c_2'(t)y_2(t)=0
+$$
+则在<span class="arithmatex">\(y_p''\)</span>中将不含<span class="arithmatex">\(c_1(t)\)</span>和<span class="arithmatex">\(c_2(t)\)</span>的二阶导数，进而简化问题。将<span class="arithmatex">\(y_p\)</span>带入方程可以得到另一个限制条件为
+$$
+c_1'(t)y_1'(t)+c_2'(t)y_2'(t)=f(t)
+$$
+因此可以解得
+$$
+c_1'(t)=\dfrac{-f(t)y_2(t)}{W<a href="t">y_1,y_2</a>},\quad c_2'(t)=\dfrac{f(t)y_1(t)}{W<a href="t">y_1,y_2</a>}
+$$
+<strong>定理：</strong> 设<span class="arithmatex">\(y_1(t)\)</span>和<span class="arithmatex">\(y_2(t)\)</span>是对应的线性齐次微分方程的两个线性无关解，则线性非齐次微分方程的一个特解为
+$$
+y_p(t)=-y_1(t)\int\dfrac{f(t)y_2(t)}{W<a href="t">y_1,y_2</a>}\text{d}t+y_2(t)\int\dfrac{f(t)y_1(t)}{W<a href="t">y_1,y_2</a>}\text{d}t
+$$
+其中<span class="arithmatex">\(W[y_1,y_2](t)\)</span>是<span class="arithmatex">\(y_1(t)\)</span>和<span class="arithmatex">\(y_2(t)\)</span>所组成的Wronsky行列式。</p>
+<h5 id="_37">待定系数法</h5>
+<p><strong>定理：</strong> 设非齐次项<span class="arithmatex">\(f(t)\)</span>为<span class="arithmatex">\(P_m(t)e^{rt}\cos{kt}\)</span>或<span class="arithmatex">\(P_m(t)e^{rt}\sin{kt}\)</span>的形式，其中<span class="arithmatex">\(P_m(t)\)</span>为<span class="arithmatex">\(t\)</span>的<span class="arithmatex">\(m\)</span>次多项式，<span class="arithmatex">\(r\)</span>和<span class="arithmatex">\(k\)</span>为实常数。
+1. 如果复数<span class="arithmatex">\(r+\mathrm{i}k\)</span>不是ODE特征方程的根，则线性非齐次微分方程的特解可取为
+$$
+y_p=(A_0+A_1t+\cdots+A_mt^m)e^{rt}\cos{kt}+(B_0+B_1t+\cdots+B_mt^m)e^{rt}\sin{kt}
+$$
+2. 如果复数<span class="arithmatex">\(r+\mathrm{i}k\)</span>是ODE的<span class="arithmatex">\(s\)</span>重根，则线性非齐次微分方程的特解可取为
+$$
+y_p=t^se^{rt}[(A_0+A_1t+\cdots+A_mt^m)\cos{kt}+(B_0+B_1t+\cdots+B_mt^m)\sin{kt}]
+$$</p>
+<h3 id="_38">变系数线性微分方程的一些解法</h3>
+<h4 id="euler_1">Euler方程</h4>
+<p>考虑形如
+$$
+x^n\dfrac{\text{d}^ny}{\text{d}x^n}+a_1x^{n-1}\dfrac{\text{d}^{n-1}y}{\text{d}x^{n-1}}+\cdots+a_{n-1}x\dfrac{\text{d}y}{\text{d}x}+a_ny=f(x)
+$$
+的变系数线性微分方程，其中<span class="arithmatex">\(a_1,\cdots,a_n\)</span>为常数。这类方程称为<strong>Euler方程</strong>。
+在<span class="arithmatex">\(x&gt;0\)</span>范围内引入自变量代换<span class="arithmatex">\(t=\ln{x}\)</span>，由复合函数求导法则
+$$
+\dfrac{\text{d}y}{\text{d}t}=\dfrac{\text{d}y}{\text{d}x}\dfrac{\text{d}x}{\text{d}t}=x\dfrac{\text{d}y}{\text{d}x}
+$$
+由此得
+$$
+\dfrac{\text{d}y}{\text{d}x}=\dfrac{1}{x}\dfrac{\text{d}y}{\text{d}t}
+$$
+进而Euler方程可以化为
+$$
+\dfrac{\text{d}^ny}{\text{d}t^n}+b_1\dfrac{\text{d}^{n-1}y}{\text{d}t^{n-1}}+\cdots+b_{n-1}\dfrac{\text{d}y}{\text{d}t}+b_ny=f(e^t)
+$$
+对于<span class="arithmatex">\(x&lt;0\)</span>仍可得到类似的结论。
+根据Euler方程的特点，当<span class="arithmatex">\(f(x)=0\)</span>时可判断方程有形如<span class="arithmatex">\(x^r\)</span>的解，因此将其带入Euler方程可得到<span class="arithmatex">\(r\)</span>满足代数方程
+$$
+r(r-1)\cdots(r-n+1)+a_1r(r-1)\cdots(r-n+2)+\cdots+a_n=0
+$$
+如果<span class="arithmatex">\(r=r_0\)</span>是该方程的<span class="arithmatex">\(m\)</span>重实根，那么Euler方程有<span class="arithmatex">\(m\)</span>个实值解
+$$
+x^{r_0},x^{r_0}\ln{|x|},\cdots,x^{r_0}\ln^{m-1}|x|
+$$</p>
+<h4 id="_39">降阶法</h4>
+<p>（只介绍二阶）
+对于二阶变系数线性齐次微分方程
+$$
+L[y]=y''+p(x)y'+q(x)y=0
+$$
+如果已知了一个非平凡解<span class="arithmatex">\(y_1(x)\)</span>，则可令<span class="arithmatex">\(y=y_1u\)</span>来求解出
+$$
+y_2(x)=y_1(x)\int\dfrac{e^{-\int p(x)\text{d}x}}{y_1^2(x)}\text{d}x
+$$
+假设解能够写成<span class="arithmatex">\(y=uv\)</span>的形式，那么
+$$
+\begin{aligned}
+L[y]&amp;=L[uv]=(u''v+2u'v'+uv'')+p(u'v+uv')+quv\
+&amp;=u''v+u'(2v'+pv)+u(v''+pv'+qv)\
+&amp;=0
+\end{aligned}
+$$
+如果满足
+$$
+\begin{cases}
+2v'+pv=av\
+v''+pv'+qv=bv
+\end{cases}
+$$
+其中<span class="arithmatex">\(a,b\)</span>均为常数。则可以得到
+$$
+2p'+p^2-4q=a^2-4b
+$$
+此时原ODE可化为
+$$
+L[y]=v(u''+au'+bu)=0
+$$
+因此，当确定<span class="arithmatex">\(2p'+p^2-4q\)</span>的值为常数时，即可通过给定<span class="arithmatex">\(a,b\)</span>来求解出<span class="arithmatex">\(u\)</span>和<span class="arithmatex">\(v\)</span>，进而得到ODE的解。
+<strong>例：</strong> 求解ODE：
+$$
+4y''+4ty+(t^2+1)y=0
+$$
+<em>解：</em> <span class="arithmatex">\(p(t)=t,q(t)=\dfrac{t^2+1}{4}\)</span>，因此有
+$$
+2p'+p^2-4q=2+t^2-(t^2+1)=1
+$$
+取<span class="arithmatex">\(a=0,b=-\dfrac{1}{4}\)</span>，则有
+$$
+\begin{cases}
+v'+tv=0,\
+u''-\dfrac{1}{4}u=0
+\end{cases}
+$$
+进而解得ODE的通解为
+$$
+y(t)=C_1e^{-\frac{t}{2}-\frac{t^2}{4}}+C_2e^{\frac{t}{2}-\frac{t^2}{4}}
+$$</p>
+<h4 id="_40">幂级数解法</h4>
+<p>通过展开成幂级数后比较系数的方式求解。</p>
+<h3 id="laplace">Laplace变换法</h3>
+<p>见《信号与系统》。</p>
+<h2 id="_41">微分方程的稳定性理论</h2>
+<h3 id="lyapunov">Lyapunov稳定性的基本概念</h3>
+<p>考虑微分方程组
+$$
+\dfrac{\text{d}\mathbf{x}(t)}{\text{d}t}=\mathbf{f}(t,\mathbf{x}),\quad t\in (\beta,+\infty)
+$$
+其中<span class="arithmatex">\(\mathbf{f}(t,\mathbf{x})\)</span>是定义在<span class="arithmatex">\((\beta,+\infty)\times \mathbb{R}^n\)</span>上的函数且关于<span class="arithmatex">\(\mathbf{x}\)</span>满足局部Lipschitz条件，<span class="arithmatex">\(\beta\)</span>是一个给定的常数或<span class="arithmatex">\(\beta=-\infty\)</span>；记<span class="arithmatex">\(\mathbf{x}(t)=\boldsymbol{\varphi}(t)\)</span>是微分方程组的一个特解。
+<strong>定义（Lyapunov稳定）：</strong> 如果对于任意给定的<span class="arithmatex">\(\varepsilon&gt;0\)</span>以及任意<span class="arithmatex">\(t_0&gt;\beta\)</span>，存在<span class="arithmatex">\(\delta(t_0,\varepsilon)&gt;0\)</span>，只要<span class="arithmatex">\(\|\mathbf{x}_0-\boldsymbol{\varphi}(t_0)\|&lt;\delta\)</span>，方程组满足初值条件<span class="arithmatex">\(\mathbf{x}(t_0)=\mathbf{x}_0\)</span>的解<span class="arithmatex">\(\mathbf{x}=\mathbf{x}(t;t_0,\mathbf{x}_0)\)</span>在区间<span class="arithmatex">\([t_0,+\infty)\)</span>上总是存在的且对于一切<span class="arithmatex">\(t\in [t_0,+\infty)\)</span>有
+$$
+|\mathbf{x}(t;t_0,\mathbf{x}<em _infty="+\infty" t_to="t\to">0)-\boldsymbol{\varphi}(t)|&lt;\varepsilon
+$$
+则称特解<span class="arithmatex">\(\mathbf{x}=\boldsymbol{\varphi}(t)\)</span>是<strong>Lyapunov稳定</strong>的，简称为<strong>稳定</strong>的。
+<strong>定义（Lyapunov一致稳定）：</strong> 如果对于任意给定的<span class="arithmatex">\(\varepsilon&gt;0\)</span>以及任意<span class="arithmatex">\(t_0&gt;\beta\)</span>，存在仅依赖于<span class="arithmatex">\(\varepsilon\)</span>的<span class="arithmatex">\(\delta(\varepsilon)&gt;0\)</span>，只要<span class="arithmatex">\(\|\mathbf{x}_0-\boldsymbol{\varphi}(t_0)\|&lt;\delta\)</span>，方程组满足初值条件<span class="arithmatex">\(\mathbf{x}(t_0)=\mathbf{x}_0\)</span>的解<span class="arithmatex">\(\mathbf{x}=\mathbf{x}(t;t_0,\mathbf{x}_0)\)</span>在区间<span class="arithmatex">\([t_0,+\infty)\)</span>上总是存在的且对于一切<span class="arithmatex">\(t\in [t_0,+\infty)\)</span>有
+$$
+|\mathbf{x}(t;t_0,\mathbf{x}_0)-\boldsymbol{\varphi}(t)|&lt;\varepsilon
+$$
+则称特解<span class="arithmatex">\(\mathbf{x}=\boldsymbol{\varphi}(t)\)</span>是<strong>Lyapunov一致稳定</strong>的，简称为<strong>一致稳定</strong>的。
+<strong>定义（Lyapunov不稳定）：</strong> 如果存在某个<span class="arithmatex">\(\varepsilon_0&gt;0\)</span>以及<span class="arithmatex">\(t_0&gt;\beta\)</span>，对任何<span class="arithmatex">\(\delta&gt;0\)</span>，都至少存在一个满足<span class="arithmatex">\(\|\mathbf{x}_0-\boldsymbol{\varphi}(t_0)\|&lt;\delta\)</span>的初值<span class="arithmatex">\(\mathbf{x}_0\)</span>，使得方程组满足初值条件<span class="arithmatex">\(\mathbf{x}(t_0)=\mathbf{x}_0\)</span>的解<span class="arithmatex">\(\mathbf{x}=\mathbf{x}(t;t_0,\mathbf{x}_0)\)</span>在某个<span class="arithmatex">\(t_1&gt;t_0\)</span>处无定义，或者在<span class="arithmatex">\(t_1\)</span>处满足
+$$
+|\mathbf{x}(t_1;t_0,\mathbf{x}_0)-\boldsymbol{\varphi}(t_1)|\geq\varepsilon_0
+$$
+则称特解<span class="arithmatex">\(\mathbf{x}=\boldsymbol{\varphi}(t)\)</span>是<strong>Lyapunov不稳定</strong>的，简称为<strong>不稳定</strong>的。
+<strong>定义（Lyapunov吸引）：</strong> 如果对于任意<span class="arithmatex">\(t_0&gt;\beta\)</span>存在<span class="arithmatex">\(\eta(t_0)&gt;0\)</span>，当<span class="arithmatex">\(\|\mathbf{x}_0-\boldsymbol{\varphi}(t_0)\|&lt;\eta(t_0)\)</span>时满足初始条件<span class="arithmatex">\(\mathbf{x}(t_0)=\mathbf{x}_0\)</span>的解<span class="arithmatex">\(\mathbf{x}=\mathbf{x}(t;t_0,\mathbf{x}_0)\)</span>满足
+$$
+\lim</em>}|\mathbf{x}(t;t_0,\mathbf{x<em _infty="+\infty" t_to="t\to">0)-\boldsymbol{\varphi}(t)|=0
+$$
+则称特解<span class="arithmatex">\(\mathbf{x}=\boldsymbol{\varphi}(t)\)</span>是<strong>Lyapunov吸引</strong>的，简称为<strong>吸引</strong>的。
+<strong>定义（Lyapunov一致吸引）：</strong> 如果对于任意<span class="arithmatex">\(t_0&gt;\beta\)</span>存在不依赖于<span class="arithmatex">\(t_0\)</span>的<span class="arithmatex">\(\eta&gt;0\)</span>，当<span class="arithmatex">\(\|\mathbf{x}_0-\boldsymbol{\varphi}(t_0)\|&lt;\eta(t_0)\)</span>时满足初始条件<span class="arithmatex">\(\mathbf{x}(t_0)=\mathbf{x}_0\)</span>的解<span class="arithmatex">\(\mathbf{x}=\mathbf{x}(t;t_0,\mathbf{x}_0)\)</span>满足
+$$
+\lim</em>(t)|=0
+$$
+则称特解}|\mathbf{x}(t;t_0,\mathbf{x}_0)-\boldsymbol{\varphi<span class="arithmatex">\(\mathbf{x}=\boldsymbol{\varphi}(t)\)</span>是<strong>Lyapunov一致吸引</strong>的，简称为<strong>一致吸引</strong>的。
+<strong>定义（渐进稳定与一致渐进稳定）：</strong> 如果特解既是稳定的又是吸引的，则称它是<strong>渐进稳定</strong>的；如果特解既是一致稳定的又是一致吸引的，则称它是<strong>一致渐进稳定</strong>的。</p>
+<blockquote>
+<p>总可以通过函数变换来将特解的稳定性转化为零解的稳定性来讨论，因此后续只讨论零解的稳定性。</p>
+</blockquote>
+<h3 id="_42">稳定性的线性近似判别法</h3>
+<p><strong>定义（线性近似方程）：</strong> 将方程<span class="arithmatex">\(\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{f}(t,\mathbf{x})\)</span>表示为如下形式：
+$$
+\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{A}(t)\mathbf{x}+\mathbf{r}(t,\mathbf{x})
+$$
+其中<span class="arithmatex">\(\mathbf{A}(t)=\left[\dfrac{\partial\mathbf{f}(t,\mathbf{x})}{\partial\mathbf{x}}\right]\bigg|_{\mathbf{x}=\mathbf{0}}\)</span>是<span class="arithmatex">\(n\times n\)</span>矩阵，<span class="arithmatex">\(\mathbf{r}(t,\mathbf{x})\)</span>是<span class="arithmatex">\(\mathbf{f}(t,\mathbf{x})\)</span>按<span class="arithmatex">\(\mathbf{x}\)</span>的分量在<span class="arithmatex">\(\mathbf{x}=\mathbf{0}\)</span>处展开时展开式中所有幂数高于一次的项的总和，即<span class="arithmatex">\(\mathbf{r}(t,\mathbf{x})\)</span>为高阶扰动项，满足
+$$
+\lim_{|\mathbf{x}|\to 0}\dfrac{|\mathbf{r}(t,\mathbf{x})|}{|\mathbf{x}|}=0
+$$
+把线性齐次微分方程
+$$
+\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{A}(t)\mathbf{x},\quad t&gt;\beta
+$$
+称为ODE的<strong>线性近似方程</strong>。</p>
+<h4 id="_43">线性微分方程组零解的稳定性</h4>
+<p>讨论线性齐次微分方程组
+$$
+\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{A}(t)\mathbf{x},\quad t&gt;\beta,\mathbf{x}\in\mathbb{R}^n
+$$
+零解的稳定性，其中<span class="arithmatex">\(\mathbf{A}(t)\)</span>是一个定义在<span class="arithmatex">\((\beta,+\infty)\)</span>上的连续矩阵函数。
+<strong>定理：</strong> 设<span class="arithmatex">\(\mathbf{\Phi}(t)\)</span>是线性齐次微分方程组的一个基解矩阵，则：
+(1) 线性齐次微分方程组零解稳定的充要条件是：对任何<span class="arithmatex">\(t_0&gt;\beta\)</span>存在一个<span class="arithmatex">\(K=K(t_0)&gt;0\)</span>使得
+$$
+|\mathbf{\Phi}(t)|\leq K,\quad t\geq t_0
+$$
+(2) 线性齐次微分方程组零解一致稳定的充要条件是：存在一个<span class="arithmatex">\(K=K(\beta)&gt;0\)</span>使得
+$$
+|\mathbf{\Phi}(t)\mathbf{\Phi}^{-1}(s)|\leq K,\quad t&gt;s&gt;\beta
+$$
+(3) 线性齐次微分方程组零解渐进稳定的充要条件是：
+$$
+\lim_{t\to+\infty}|\mathbf{\Phi}(t)|=0
+$$
+(4) 线性齐次微分方程组零解一致渐进稳定的充要条件是：存在一个<span class="arithmatex">\(M=M(\beta)&gt;0\)</span>及<span class="arithmatex">\(\alpha=\alpha(\beta)&gt;0\)</span>使得
+$$
+|\mathbf{\Phi}(t)\mathbf{\Phi}(s)|\leq Me^{-\alpha(t-s)},\quad t&gt;s&gt;\beta
+$$
+<strong>定理：</strong> 假设<span class="arithmatex">\(\mathbf{A}\)</span>是一个<span class="arithmatex">\(n\times n\)</span>常系数矩阵，对于常系数线性微分方程组
+$$
+\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{Ax}
+$$
+有：
+(1) 零解是（一致）渐进稳定的充要条件是<span class="arithmatex">\(\mathbf{A}\)</span>的所有特征值的实部都是负的；
+(2) 零解是（一致）稳定的充要条件是<span class="arithmatex">\(\mathbf{A}\)</span>的特征值中没有实部为正的，且实部为0的特征值对应的Jordan块都是一阶的；
+(3) 否则零解是不稳定的。</p>
+<h4 id="_44">非线性微分方程组零解的稳定性</h4>
+<p><strong>定理：</strong> 设<span class="arithmatex">\(\mathbf{A}(t)\)</span>为区间<span class="arithmatex">\((\beta,+\infty)\)</span>上的连续矩阵函数，线性齐次微分方程组<span class="arithmatex">\(\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{A}(t)\mathbf{x}\)</span>是一致稳定的，存在常数<span class="arithmatex">\(\delta&gt;0\)</span>以及函数<span class="arithmatex">\(b(t)\)</span>满足
+$$
+\int_\beta^{+\infty}b(t)\text{d}t&lt;+\infty
+$$
+使得
+$$
+|\mathbf{r}(t,\mathbf{x})|\leq b(t)|\mathbf{x}|,\quad t&gt;\beta,\quad |\mathbf{x}|\leq \delta
+$$
+则方程组
+$$
+\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{A}(t)\mathbf{x}+\mathbf{r}(t,\mathbf{x})
+$$
+的零解是一致稳定的。
+<strong>定理：</strong> 设<span class="arithmatex">\(\mathbf{A}(t)\)</span>为区间<span class="arithmatex">\((\beta,+\infty)\)</span>上的连续矩阵函数，线性齐次微分方程组<span class="arithmatex">\(\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{A}(t)\mathbf{x}\)</span>是一致稳定的，存在常数<span class="arithmatex">\(\delta&gt;0\)</span>以及函数<span class="arithmatex">\(b(t)\)</span>满足
+$$
+\int_\beta^{+\infty}b(t)\text{d}t&lt;\gamma(t-t_0)+\tau,\quad t&gt;t_0&gt;\beta
+$$
+其中<span class="arithmatex">\(\gamma=\gamma(\beta),\tau=\tau(\beta)\)</span>，使得
+$$
+|\mathbf{r}(t,\mathbf{x})|\leq b(t)|\mathbf{x}|,\quad t&gt;\beta,\quad |\mathbf{x}|\leq \delta
+$$
+则方程组
+$$
+\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{A}(t)\mathbf{x}+\mathbf{r}(t,\mathbf{x})
+$$
+的零解是一致渐近稳定的。
+<strong>定理：</strong> 设<span class="arithmatex">\(\mathbf{A}\)</span>是一个常数矩阵，扰动项<span class="arithmatex">\(\mathbf{r}(t,\mathbf{x})\)</span>满足条件
+$$
+\lim_{|\mathbf{x}|\to 0}\dfrac{|\mathbf{r}(t,\mathbf{x})|}{|\mathbf{x}|}=0
+$$
+关于<span class="arithmatex">\(t&gt;\beta\)</span>一致成立。
+(1) 若矩阵<span class="arithmatex">\(\mathbf{A}\)</span>的全部特征值的实部都是负的，则方程组
+$$
+\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{A}(t)\mathbf{x}+\mathbf{r}(t,\mathbf{x})
+$$
+的零解是关于<span class="arithmatex">\(t&gt;\beta\)</span>一致渐近稳定的；
+(2) 若矩阵<span class="arithmatex">\(\mathbf{A}\)</span>的特征值中至少有一个实部为正，则方程组的零解是不稳定的。</p>
+<h3 id="lyapunov_1">自治微分方程的Lyapunov第二方法</h3>
+<p>考虑<span class="arithmatex">\(n\)</span>维<strong>自治微分方程组</strong>
+$$
+\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{f}(\mathbf{x})
+$$
+<strong>定义：</strong> 设常数<span class="arithmatex">\(h&gt;0\)</span>，函数<span class="arithmatex">\(V(\mathbf{x})\)</span>在<span class="arithmatex">\(\|\mathbf{x}\|\leq h\)</span>内连续并且关于各分量有一阶连续的偏导数。
+* 如果<span class="arithmatex">\(V(\mathbf{0})=0\)</span>且在<span class="arithmatex">\(0&lt;\|\mathbf{x}\|\leq h\)</span>内有<span class="arithmatex">\(V(\mathbf{x})&gt;0\)</span>（或<span class="arithmatex">\(V(\mathbf{x})&lt;0\)</span>），则称<span class="arithmatex">\(V(\mathbf{x})\)</span>是一个<strong>定正</strong>（或<strong>定负</strong>）函数。定正函数与定负函数统称为<strong>定号函数</strong>；
+*  如果<span class="arithmatex">\(V(\mathbf{0})=0\)</span>且在<span class="arithmatex">\(0&lt;\|\mathbf{x}\|\leq h\)</span>内有<span class="arithmatex">\(V(\mathbf{x})\geq 0\)</span>（或<span class="arithmatex">\(V(\mathbf{x})\leq 0\)</span>），则称<span class="arithmatex">\(V(\mathbf{x})\)</span>是一个<strong>常正</strong>（或<strong>常负</strong>）函数。定正函数与定负函数统称为<strong>常号函数</strong>。
+<strong>定理：</strong> 如果存在<span class="arithmatex">\(h&gt;0\)</span>以及定义在<span class="arithmatex">\(\|\mathbf{x}\|&lt;h\)</span>内的一个定正函数<span class="arithmatex">\(V(\mathbf{x})\)</span>，使得在<span class="arithmatex">\(\|\mathbf{x}\|&lt;h\)</span>内定正函数<span class="arithmatex">\(V(\mathbf{x})\)</span>关于微分方程组的全导数
+$$
+\dfrac{\text{d}V(\mathbf{x})}{\text{d}t}=\nabla V(\mathbf{x})\cdot\mathbf{f}(\mathbf{x})
+$$
+是常负函数，则自治微分方程组的零解是稳定的。
+<strong>定理：</strong> 如果存在<span class="arithmatex">\(h&gt;0\)</span>以及定义在<span class="arithmatex">\(\|\mathbf{x}\|&lt;h\)</span>内的一个定正函数<span class="arithmatex">\(V(\mathbf{x})\)</span>，使得在<span class="arithmatex">\(\|\mathbf{x}\|&lt;h\)</span>内定正函数<span class="arithmatex">\(V(\mathbf{x})\)</span>关于微分方程组的全导数
+$$
+\dfrac{\text{d}V(\mathbf{x})}{\text{d}t}=\nabla V(\mathbf{x})\cdot\mathbf{f}(\mathbf{x})
+$$
+是定负函数，则自治微分方程组的零解是渐近稳定的。
+<strong>定理：</strong> 如果存在一个标量函数<span class="arithmatex">\(V(\mathbf{x})\)</span>和原点某邻域中的一个开子区域<span class="arithmatex">\(\mathcal{N}\)</span>使得
+(1) <span class="arithmatex">\(V(\mathbf{x})\)</span>在<span class="arithmatex">\(\mathcal{N}\)</span>内连续可微；
+(2) <span class="arithmatex">\(\mathcal{N}\)</span>的边界<span class="arithmatex">\(\partial\mathcal{N}\)</span>通过原点，且存在<span class="arithmatex">\(\delta&gt;0\)</span>，记<span class="arithmatex">\(\mathcal{B}_\delta=\{\mathbf{x}\mid \|\mathbf{x}\|\leq\delta\}\)</span>使得
+$$
+V(\mathbf{x})|<em>{\mathbf{x}\in\partial\mathcal{N}\cap\mathcal{B}</em>\delta}=0
+$$
+(3) 在<span class="arithmatex">\(\mathcal{N}\cap\mathcal{B}_\delta\)</span>内<span class="arithmatex">\(V(\mathbf{x})\)</span>和全导数<span class="arithmatex">\(\dfrac{\text{d}V(\mathbf{x})}{\text{d}t}\)</span>都是定正函数。
+则自治微分方程组的零解是不稳定的。</p>
+<h2 id="_45">微分方程的几何理论</h2>
+<h3 id="_46">自治微分方程组的相空间与轨线</h3>
+<p>考虑<span class="arithmatex">\(n\)</span>维自治微分方程组
+$$
+\dfrac{\text{d}\mathbf{x}}{\text{d}t}=\mathbf{f}(\mathbf{x})
+$$
+如果向量函数<span class="arithmatex">\(\mathbf{f}(\mathbf{x})\)</span>满足解的存在唯一性条件，则满足初始条件<span class="arithmatex">\(\mathbf{x}(t_0)=\mathbf{x}_0\)</span>的自治微分方程组存在唯一解，记为<span class="arithmatex">\(\mathbf{x}=\boldsymbol{\varphi}(t;t_0,\mathbf{x}_0)\)</span>。
+从动力学观点来看，<span class="arithmatex">\(\mathbf{x}\)</span>可以看成一个质点<span class="arithmatex">\(M\)</span>在空间<span class="arithmatex">\(\mathbb{R}^n\)</span>中的位置变量，<span class="arithmatex">\(\mathbf{f}(\mathbf{x})\)</span>可以看成空间<span class="arithmatex">\(\mathbb{R}^n\)</span>中的一个速度场，那么自治微分方程组可以理解为质点<span class="arithmatex">\(M\)</span>在速度场作用下的运动。把质点<span class="arithmatex">\(M\)</span>所在的空间称为<strong>相空间</strong>，把<span class="arithmatex">\((t,\mathbf{x})\)</span>所在的空间称为<strong>增广相空间</strong>，把以<span class="arithmatex">\(t\)</span>为参数且规定沿着<span class="arithmatex">\(t\)</span>增加方向为正方向的曲线<span class="arithmatex">\(\mathbf{x}=\boldsymbol{\varphi}(t;t_0,\mathbf{x}_0)\)</span>（即质点<span class="arithmatex">\(M\)</span>的运动轨迹）称为自治微分方程组的<strong>轨线</strong>，标明所有轨线位置关系的拓扑结构图称为自治微分方程组的<strong>相图</strong>。轨线是自治微分方程组的积分曲线在相空间上的投影曲线。</p>
+<h3 id="_47">平面线性自治微分方程组的奇点分析</h3>
+<p>考虑线性微分方程组
+$$
+\begin{cases}
+\dfrac{\text{d}x}{\text{d}t}=ax+by,\
+\dfrac{\text{d}y}{\text{d}t}=cx+dy,
+\end{cases}
+$$
+其中<span class="arithmatex">\(a,b,c,d\)</span>是常数。记
+$$
+\mathbf{Q}=\begin{bmatrix}
+a &amp; b\
+c &amp; d
+\end{bmatrix}
+$$
+当原点<span class="arithmatex">\((0,0)\)</span>是线性微分方程组的唯一奇点，即<span class="arithmatex">\(|\mathbf{Q}|\neq 0\)</span>时，称原点<span class="arithmatex">\((0,0)\)</span>是方程组的<strong>初等奇点</strong>，这时方程组称为<strong>非退化线性微分方程组</strong>；当<span class="arithmatex">\(|\mathbf{Q}|=0\)</span>时，称原点<span class="arithmatex">\((0,0)\)</span>是方程组的<strong>高等奇点</strong>，方程组称为<strong>退化线性微分方程组</strong>。</p>
+<h4 id="_48">非退化线性微分方程组的轨线</h4>
+<p>记<span class="arithmatex">\(\mathbf{Q}\)</span>的两个特征值分别为<span class="arithmatex">\(\lambda_1,\lambda_2\)</span>。
+1. <span class="arithmatex">\(\lambda_1,\lambda_2\)</span>为两个不相等实根
+    (1) 对于同号实根的情况，奇点是结点。把直线方程<span class="arithmatex">\(y=kx\)</span>带入方程组可以得到<span class="arithmatex">\(k=\dfrac{c+dk}{a+bk}\)</span>，求出两个实数<span class="arithmatex">\(k_1,k_2\)</span>（<span class="arithmatex">\(k_2\)</span>允许取<span class="arithmatex">\(+\infty\)</span>），进而确定四条直轨线的位置。在二者之间的部分，任取射线<span class="arithmatex">\(y=kx\)</span>，轨线与射线的交点处斜率为<span class="arithmatex">\(\dfrac{c+dk}{a+bk}\)</span>，通过比较斜率的大小关系判断到底与哪条直线相切。
+    (2) 对于异号实根的情况，奇点是鞍点。四条直轨线中两条趋于原点，两条离开原点，在其中一条止规线上任取一点计算出该点的切向量，即可确定出这条直轨线的正向。
+2. <span class="arithmatex">\(\lambda_1,\lambda_2\)</span>为两个相等实根
+    可能是星形结点也可能是退化结点。若有无穷多条直轨线，则是星形结点；若只有一个<span class="arithmatex">\(y=k_0x\)</span>，则是退化结点。对于直轨线以外的点<span class="arithmatex">\((x_0,y_0)\)</span>，如果<span class="arithmatex">\(\left(x\dfrac{\text{d}y}{\text{d}t}-y\dfrac{\text{d}x}{\text{d}t}\right)\bigg|_{(x_0,y_0)}&gt;0\)</span>，则轨线正向是逆时针方向，否则是顺时针方向。
+3.   <span class="arithmatex">\(\lambda_1,\lambda_2\)</span>为两个共轭复根
+    特征值实部为0时，奇点是中心；实部不为0时，奇点是焦点。旋转方向通过<span class="arithmatex">\(\left(x\dfrac{\text{d}y}{\text{d}t}-y\dfrac{\text{d}x}{\text{d}t}\right)\bigg|_{(x_0,y_0)}\)</span>来判别。</p>
+<h4 id="_49">退化线性微分方程组的轨线</h4>
+<p>对于只有一个零特征值的情况，找到直轨线后，直轨线上的所有点都是奇点。
+对于两个零特征值的情况，所有轨线与直轨线平行。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright©️Tannin Rachel
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../mathjax-config.js"></script>
+      
+        <script src="../../katex.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.17.1/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/@mermaid-js/mermaid-mindmap@9.3.0/dist/diagram-definition.0faef4c2.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/markdown-it-plantuml@1.4.1/index.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-chtml-full.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-svg-full.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
